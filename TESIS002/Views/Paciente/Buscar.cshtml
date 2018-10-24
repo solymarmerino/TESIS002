@@ -1,8 +1,54 @@
 ﻿
 @{
-    ViewBag.Title = "Buscar";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Buscar";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Buscar</h2>
+<p><h2 style="text-align:center">Buscar Paciente</h2></p>
+<div class="row">
+	<div class="col-md-3">
+		<p>
+			<label>Nombre</label>
+			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+
+	<div class="col-md-3">
+		<p>
+			<label>Cedula</label>
+			<br />
+			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+
+	<div class="col-md-3">
+		<p>
+			<label>Nº Historia Clinica</label>
+			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+
+	<div class="col-md-3">
+		<br />
+		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">BUSCAR</button>
+	</div>
+</div>
+
+<p>
+	<table class="table">
+		<tr>
+			<th scope="col">Paciente</th>
+			<th scope="col">Historia Cl&iacute;nica</th>
+			<th scope="col">C&eacute;dula</th>
+		</tr>
+		<tr>
+			<td>JUAN DAVID MOLINA PEREZ</td>
+			<td>00001</td>
+			<td>1234567890</td>
+		</tr>
+	</table>
+</p>
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">NUEVO PACIENTE</button>
+</div>
 
