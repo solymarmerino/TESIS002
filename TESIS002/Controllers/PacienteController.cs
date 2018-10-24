@@ -22,5 +22,10 @@ namespace TESIS002.Controllers
         {
             return View();
         }
+
+        public ActionResult Actualizar()
+        {
+            return View();
+        }
     }
 }

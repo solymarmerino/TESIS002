@@ -149,9 +149,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CitaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LaboratorioController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
+    <Compile Include="Controllers\ProcedimientoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,6 +242,10 @@
     <Content Include="Views\Paciente\Listar.cshtml" />
     <Content Include="Views\Paciente\Ingresar.cshtml" />
     <Content Include="Views\Paciente\Mostrar.cshtml" />
+    <Content Include="Views\Paciente\Actualizar.cshtml" />
+    <Content Include="Views\Cita\Ingresar.cshtml" />
+    <Content Include="Views\Laboratorio\Ingresar.cshtml" />
+    <Content Include="Views\Procedimiento\Ingresar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
