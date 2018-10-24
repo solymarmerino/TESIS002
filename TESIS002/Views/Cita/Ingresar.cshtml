@@ -1,8 +1,100 @@
 ﻿
 @{
-    ViewBag.Title = "Ingresar";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Ingresar";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Ingresar</h2>
+<h2 style="text-align:center">Ingresar</h2>
+<br />
+
+<div class="row">
+	<div class="col-md-4">
+		<p>
+			<label>Nombre</label>
+			<br />
+			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+
+	<div class="col-md-4">
+		<p>
+			<label>Cedula</label>
+			<br />
+			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+
+	<div class="col-md-4">
+		<p>
+			<label>Nº Historia Clinica</label>
+			<br />
+			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<p>
+			<label>ESPECIALIDADES</label>
+			<br />
+			<select style="text-align:left; border-radius:0.3rem; width:200px; height:40px;">
+				<option value="medico a">PEDIATRIA</option>
+				<option value="medico b">MEDICINA GENERAL</option>
+				<option value="medico c">TRAHUMATOLOGO</option>
+			</select>
+		</p>
+	</div>
+	<div class="col-md-4">
+		<p>
+			<label>Medico</label>
+			<br />
+			<select style="text-align:left; border-radius:0.3rem; width:200px; height:40px;">
+				<option value="medico a">MEDICO A</option>
+				<option value="medico b">MEDICO B</option>
+				<option value="medico c">MEDICO C</option>
+				<option value="medico d">MEDICO D</option>
+			</select>
+		</p>
+	</div>
+	<div class="col-md-4">
+		<p>
+			<label>Tipo cita</label>
+			<br />
+			<select style="text-align:left; border-radius:0.3rem; width:200px; height:40px;">
+				<option value="cita a">CITA A</option>
+				<option value="cita b">CITA B</option>
+				<option value="cita c">CITA C</option>
+				<option value="cita d">CITA D</option>
+			</select>
+		</p>
+	</div>
+</div>
+
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">AGREGAR CITA</button>
+</div>
+
+<br />
+<p>
+	<table class="table">
+		<tr>
+			<th scope="col">Paciente</th>
+			<th scope="col">Historia Cl&iacute;nica</th>
+			<th scope="col">C&eacute;dula</th>
+		</tr>
+		<tr>
+			<td>JUAN DAVID MOLINA PEREZ</td>
+			<td>00001</td>
+			<td>1234567890</td>
+		</tr>
+	</table>
+</p>
+
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">GUARDAR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">MAS</button>
+</div>
+
 

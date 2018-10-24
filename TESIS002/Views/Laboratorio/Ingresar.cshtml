@@ -1,8 +1,78 @@
 ﻿
 @{
-    ViewBag.Title = "Ingresar";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Ingresar";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Ingresar</h2>
+
+<h2 style="text-align:center">Ingresar</h2>
+<br />
+
+<div class="row">
+	<div class="col-md-3">
+		<p>
+			<label>Nombre Completo</label>
+			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+	<div class="col-md-3">
+		<p>
+			<label>Cedula</label>
+			<br />
+			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+	<div class="col-md-3">
+		<p>
+			<label>Fecha</label>
+			<br />
+			<input type="date" style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+	<div class="col-md-3">
+		<p>
+			<label>Codigo</label>
+			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-3">
+		<h3>Hermatología</h3>
+		<input type="checkbox" name="hematologia" value="BiometriaHematica" /> Biometria Hemática <br>
+		<input type="checkbox" name="hematologia" value="FormulaLeucocitaria" /> Fórmula Leucocitaria <br>
+		<input type="checkbox" name="hematologia" value="NumeroLeucocitos" /> Numero Leucocitos <br>
+		<input type="checkbox" name="hematologia" value="Sedimentacion" /> Sedimentación <br>
+		<input type="checkbox" name="hematologia" value="GrupoSanguineoRh" /> Grupo Sanguineo Rh <br>
+		<input type="checkbox" name="hematologia" value="CoombsDirecto" /> Coombs Directo <br>
+		<input type="checkbox" name="hematologia" value="CoombsIndirecto" /> Coombs Indirecto <br>
+		<input type="checkbox" name="hematologia" value="Reticulocitos" /> Reticulocitos <br>
+		<input type="checkbox" name="hematologia" value="CelulasLE" /> Celulas L.E. <br>
+		<input type="checkbox" name="hematologia" value="Hematozoario" /> Hematozoario <br>
+	</div>
+	<div class="col-md-3">
+		<h3>Coagulación</h3>
+		<input type="checkbox" name="coagulacion" value="TiempoCoagulacion" /> Tiempo de Coagulación <br>
+		<input type="checkbox" name="coagulacion" value="TiempoHemorragia" /> Tiempo de Hemorragia <br>
+		<input type="checkbox" name="coagulacion" value="RetracciónCoagulo" /> Retracción del Cóagulo <br>
+		<input type="checkbox" name="coagulacion" value="RetracciónCoagulo" /> Retracción del Cóagulo <br>
+		<input type="checkbox" name="coagulacion" value="Fibrinogeno" /> Fibrinogeno <br>
+	</div>
+</div>
+
+<br />
+<div>
+	<label>Total</label>
+	<input />
+</div>
+
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">CANCELAR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">GUARDAR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">HISTORIA CLINICA</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">MAS</button>
+</div>
+
 
