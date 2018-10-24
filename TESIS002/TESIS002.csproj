@@ -238,6 +238,7 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Paciente\Listar.cshtml" />
     <Content Include="Views\Paciente\Ingresar.cshtml" />
+    <Content Include="Views\Paciente\Mostrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

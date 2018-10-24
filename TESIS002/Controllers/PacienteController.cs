@@ -17,5 +17,10 @@ namespace TESIS002.Controllers
         {
             return View();
         }
+
+        public ActionResult Mostrar()
+        {
+            return View();
+        }
     }
 }
