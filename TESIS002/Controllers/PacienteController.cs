@@ -9,7 +9,11 @@ namespace TESIS002.Controllers
     public class PacienteController : Controller
     {
         // GET: Paciente
-        public ActionResult Buscar()
+        public ActionResult Listar()
+        {
+            return View();
+        }
+        public ActionResult Ingresar()
         {
             return View();
         }
