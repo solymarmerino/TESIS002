@@ -1,8 +1,77 @@
 ﻿
 @{
-    ViewBag.Title = "Mostrar";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Mostrar";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Mostrar</h2>
+
+<h2 class="text-center">Inventario</h2>
+<br />
+<div class="row">
+	<div class="col-xl-3">
+		<p>
+			<label>Producto</label>
+			<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-2">
+		<p>
+			<label>Tipo</label>
+			<br />
+			<select style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+				<option value="tipo1">Tipo 1</option>
+				<option value="tipo2">Tipo 2</option>
+				<option value="tipo3">Tipo 3</option>
+			</select>
+		</p>
+	</div>
+	<div class="col-xl-2">
+		<p>
+			<label>Cantidad</label>
+			<br />
+			<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-3">
+		<p>
+			<label>Lote</label>
+			<br />
+
+		</p>
+	</div>
+	<div class="col-xl-2">
+		<p>
+			<label>Fecha de vencimiento</label>
+			<input type="date" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+</div>
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Guardar</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Buscar</button>
+</div>
+<br />
+<div class="table-responsive">
+	<table class="table">
+		<tr>
+			<th scope="col">Producto</th>
+			<th scope="col">Tipo</th>
+			<th scope="col">Cantidad</th>
+			<th scope="col">Lote</th>
+			<th scope="col">Fecha de Vencimiento</th>
+		</tr>
+		<tr>
+			<td scope="col">JUAN DAVID MOLINA PEREZ</td>
+			<td scope="col">00001</td>
+			<td scope="col">1234567890</td>
+			<td scope="col">MEDICO 1</td>
+			<td scope="col">SI</td>
+		</tr>
+	</table>
+</div>
+
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Modificar</button>
+</div>
+
 
