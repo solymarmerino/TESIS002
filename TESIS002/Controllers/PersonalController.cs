@@ -6,24 +6,21 @@ using System.Web.Mvc;
 
 namespace TESIS002.Controllers
 {
-    public class HomeController : Controller
+    public class PersonalController : Controller
     {
-        public ActionResult Index()
+        // GET: Personal
+        public ActionResult Ingresar()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Listar()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Modificar()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

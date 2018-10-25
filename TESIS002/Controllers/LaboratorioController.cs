@@ -13,5 +13,20 @@ namespace TESIS002.Controllers
         {
             return View();
         }
+
+        public ActionResult Listar()
+        {
+            return View();
+        }
+
+        public ActionResult Mostrar()
+        {
+            return View();
+        }
+
+        public ActionResult Modificar()
+        {
+            return View();
+        }
     }
 }

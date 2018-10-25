@@ -6,15 +6,15 @@ using System.Web.Mvc;
 
 namespace TESIS002.Controllers
 {
-    public class ProcedimientoController : Controller
+    public class FacturacionController : Controller
     {
-        // GET: Procedimiento
-        public ActionResult Ingresar()
+        // GET: Facturacion
+        public ActionResult Crear()
         {
             return View();
         }
 
-        public ActionResult Listar()
+        public ActionResult Anular()
         {
             return View();
         }

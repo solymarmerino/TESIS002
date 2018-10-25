@@ -6,15 +6,10 @@ using System.Web.Mvc;
 
 namespace TESIS002.Controllers
 {
-    public class CitaController : Controller
+    public class EnfermeriaController : Controller
     {
-        // GET: Cita
-        public ActionResult Ingresar()
-        {
-            return View();
-        }
-
-        public ActionResult Listar()
+        // GET: Enfermeria
+        public ActionResult IngresarSignosVitales()
         {
             return View();
         }

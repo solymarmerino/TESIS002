@@ -150,10 +150,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CitaController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ContabilidadController.cs" />
+    <Compile Include="Controllers\EnfermeriaController.cs" />
+    <Compile Include="Controllers\FacturacionController.cs" />
+    <Compile Include="Controllers\HistoriaClinicaController.cs" />
     <Compile Include="Controllers\LaboratorioController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
+    <Compile Include="Controllers\PersonalController.cs" />
     <Compile Include="Controllers\ProcedimientoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -226,9 +230,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -246,6 +247,29 @@
     <Content Include="Views\Cita\Ingresar.cshtml" />
     <Content Include="Views\Laboratorio\Ingresar.cshtml" />
     <Content Include="Views\Procedimiento\Ingresar.cshtml" />
+    <Content Include="Views\Cita\Listar.cshtml" />
+    <Content Include="Views\Laboratorio\Listar.cshtml" />
+    <Content Include="Views\Laboratorio\Mostrar.cshtml" />
+    <Content Include="Views\HistoriaClinica\Mostrar.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarFrecuenciaCardiaca.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarFrecuenciaRespiratoria.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarIndiceMasaCorporal.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarPeso.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarTalla.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarTemperatura.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarCertificadoMedico.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarDiagnosticoPrevio.cshtml" />
+    <Content Include="Views\Enfermeria\IngresarSignosVitales.cshtml" />
+    <Content Include="Views\Laboratorio\Modificar.cshtml" />
+    <Content Include="Views\Procedimiento\Listar.cshtml" />
+    <Content Include="Views\Personal\Ingresar.cshtml" />
+    <Content Include="Views\Personal\Listar.cshtml" />
+    <Content Include="Views\Personal\Modificar.cshtml" />
+    <Content Include="Views\Contabilidad\Ingreso.cshtml" />
+    <Content Include="Views\Contabilidad\Egreso.cshtml" />
+    <Content Include="Views\Contabilidad\Informe.cshtml" />
+    <Content Include="Views\Facturacion\Crear.cshtml" />
+    <Content Include="Views\Facturacion\Anular.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
