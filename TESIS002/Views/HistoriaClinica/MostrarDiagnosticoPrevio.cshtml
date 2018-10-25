@@ -1,8 +1,64 @@
 ﻿
 @{
-    ViewBag.Title = "MostrarDiagnosticoPrevio";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "MostrarDiagnosticoPrevio";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>MostrarDiagnosticoPrevio</h2>
+<h2 class="text-center">Diagnostico Previo</h2>
+<br />
+<div class="text-right">
+	<p>
+		<label>Fecha de Ingreso</label>
+		<br />
+		<input type="date" style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+	</p>
+</div>
+<br />
+<div class="text-center">
+	<label>S</label>
+	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+</div>
+<br />
+<div class="text-center">
+	<label>O</label>
+	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+</div>
+<br />
+<div class="text-center">
+	<label>A</label>
+	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+</div>
+<br />
+<div class="text-center">
+	<label>P</label>
+	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+</div>
+<br />
+<div class="row">
+	<div class="col-xl-5">
+		<label>Enfermedad</label>
+		<br />
+		<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	</div>
+	<div class="col-xl-3">
+		<label>CIE-10</label>
+		<br />
+		<input style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	</div>
+	<div class="col-xl-3">
+		<label>Reposo</label>
+		<br />
+		<input style="text-align:left; border-radius:0.3rem; width:150px; height:40px;" />
+		<label>días</label>
+	</div>
+</div>
+<div>
+	<label>Indicaciones</label>
+	<br />
+	<textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+</div>
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Regresar</button>
+</div>
 

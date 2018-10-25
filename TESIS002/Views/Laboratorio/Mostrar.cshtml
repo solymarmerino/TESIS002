@@ -1,8 +1,51 @@
 ﻿
 @{
-    ViewBag.Title = "Mostrar";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Mostrar";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Mostrar</h2>
+<h2 class="text-center">Resultados Examenes Medicos</h2>
+<br />
+<div class="row">
+	<div class="col-md-4">
+		<p>
+			<label>Nombre</label>
+			<br />
+			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+
+	<div class="col-md-4">
+		<p>
+			<label>Cedula</label>
+			<br />
+			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+	<div class="col-md-4">
+		<p>
+			<label>Fecha</label>
+			<br />
+			<input type="date" style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+		</p>
+	</div>
+</div>
+<br />
+<div class="table-responsive">
+	<table class="table">
+		<tr>
+			<th scope="col">Examen</th>
+			<th scope="col">Resultado</th>
+			<th scope="col">Parametro</th>
+		</tr>
+		<tr>
+			<td scope="col">EXAMEN 1</td>
+			<td scope="col">100GR</td>
+			<td scope="col">100/200GR</td>
+	</table>
+</div>
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:180px; height:40px; cursor: pointer">IMPRIMIR</button>
+</div>
 

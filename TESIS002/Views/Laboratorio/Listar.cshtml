@@ -1,8 +1,40 @@
 ﻿
 @{
-    ViewBag.Title = "Listar";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Listar";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Listar</h2>
+<h2 class="text-center">Pedidos Examenes</h2>
+<br />
+<div class="table-responsive">
+	<table class="table">
+		<tr>
+			<th scope="col">Paciente</th>
+			<th scope="col">Historia Cl&iacute;nica</th>
+			<th scope="col">C&eacute;dula</th>
+			<th scope="col">Examen</th>
+			<th scope="col">Pagado</th>
+			<th scope="col">Facturado</th>
+			<th scope="col">Hecho</th>
+		</tr>
+		<tr>
+			<td scope="col">JUAN DAVID MOLINA PEREZ</td>
+			<td scope="col">00001</td>
+			<td scope="col">1234567890</td>
+			<td scope="col">Examen 1</td>
+			<td scope="col">SI</td>
+			<td scope="col">SI</td>
+			<td scope="col">SI</td>
+		</tr>
+	</table>
+</div>
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:180px; height:40px; cursor: pointer">ENTREGAR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:180px; height:40px; cursor: pointer">ELIMINAR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:180px; height:40px; cursor: pointer">MODIFICAR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:180px; height:40px; cursor: pointer">FACTURAR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:180px; height:40px; cursor: pointer">BUSCAR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:180px; height:40px; cursor: pointer">NUEVA</button>
+</div>
 

@@ -1,8 +1,27 @@
 ﻿
 @{
-    ViewBag.Title = "Listar";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Listar";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Listar</h2>
+<h2 class="text-center">Lista Personal</h2>
+<br />
+<div>
+	<table class="table">
+		<tr>
+			<th scope="col">Nombre</th>
+			<th scope="col">Telefono</th>
+			<th scope="col">Cargo</th>
+		</tr>
+		<tr>
+			<td scope="col">JUAN DAVID MOLINA PEREZ</td>
+			<td scope="col">00001</td>
+			<td scope="col">1234567890</td>
+	</table>
+</div>
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Nuevo</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Modificar</button>
+</div>
 

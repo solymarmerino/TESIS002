@@ -1,8 +1,34 @@
 ﻿
 @{
-    ViewBag.Title = "PagoPersonal";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "PagoPersonal";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>PagoPersonal</h2>
+<h2 class="text-center">Pagos Personal</h2>
+<br />
+<div class="table-responsive">
+	<table class="table">
+		<tr>
+			<th scope="col">Personal</th>
+			<th scope="col">Citas</th>
+			<th scope="col">Procedimientos</th>
+			<th scope="col">Total</th>
+		</tr>
+		<tr>
+			<td scope="col">JUAN DAVID MOLINA PEREZ</td>
+			<td scope="col">00001</td>
+			<td scope="col">1234567890</td>
+			<td scope="col">111111</td>
+		</tr>
+	</table>
+</div>
+
+<div>
+	<label>Total</label>
+	<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+</div>
+
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Regresar</button>
+</div>
 

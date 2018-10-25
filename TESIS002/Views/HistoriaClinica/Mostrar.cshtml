@@ -1,8 +1,266 @@
 ﻿
 @{
-    ViewBag.Title = "Mostrar";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Mostrar";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Mostrar</h2>
+<h2 class="text-center">Historia Clinica</h2>
+<br />
+<div class="text-right">
+	<p><label>Nº Historia Clinica</label></p>
+	<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+</div>
+<div>
+	<h3>Datos Personales</h3>
+</div>
+<br />
+<div class="row">
+	<div class="col-xl-6">
+		<p>
+			<label>Nombre Completo</label>
+			<br />
+			<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-3">
+		<p>
+			<label>Cedula</label>
+			<br />
+			<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-3">
+		<p>
+			<label>Fecha de nacimiento</label>
+			<br />
+			<input type="date" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xl-3">
+		<p>
+			<label>Edad</label>
+			<br />
+			<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-3">
+		<p>
+			<label>Genero</label>
+			<br />
+			<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-3">
+		<p>
+			<label>Estado Civil</label>
+			<br />
+			<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-3">
+		<p>
+			<label>Tipo de Sangre</label>
+			<br />
+			<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+</div>
+<div>
+	<p><label>Alergias</label></p>
+	<textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+</div>
+<br />
+<h3>Signos Vitales</h3>
+<br />
+<div class="table-responsive">
+	<table class="table">
+		<tr>
+			<th scope="col">Fecha</th>
+			<th scope="col">Temperatura</th>
+			<th scope="col">Precion Arterial</th>
+			<th scope="col">FT</th>
+			<th scope="col">FC</th>
+			<th scope="col">Peso</th>
+			<th scope="col">Talla</th>
+		</tr>
+		<tr>
+			<td>99</td>
+			<td>99</td>
+			<td>99</td>
+			<td>99</td>
+			<td>99</td>
+			<td>99</td>
+			<td>99</td>
+		</tr>
+	</table>
+
+</div>
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:150px; height:40px; cursor: pointer">Temperatura</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:150px; height:40px; cursor: pointer">Precion Arterial</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:150px; height:40px; cursor: pointer">FR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:150px; height:40px; cursor: pointer">FC</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:150px; height:40px; cursor: pointer">Peso</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:150px; height:40px; cursor: pointer">Talla</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:150px; height:40px; cursor: pointer">IMC</button>
+</div>
+<br />
+<h3>Diagnostico</h3>
+<br />
+<div class="text-center">
+	<label>S</label>
+	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+</div>
+<div class="text-center">
+	<label>O</label>
+	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+</div>
+<div class="text-center">
+	<label>A</label>
+	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+</div>
+<div class="text-center">
+	<label>P</label>
+	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+</div>
+<div class="row">
+	<div class="col-xl-5">
+		<label>Enfermedad</label>
+		<br />
+		<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	</div>
+	<div class="col-xl-3">
+		<label>CIE-10</label>
+		<br />
+		<input style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	</div>
+	<div class="col-xl-3">
+		<label>Reposo</label>
+		<br />
+		<input style="text-align:left; border-radius:0.3rem; width:150px; height:40px;" />
+		<label>días</label>
+	</div>
+</div>
+<div>
+	<label>Indicaciones</label>
+	<br />
+	<textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+</div>
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Ingresar</button>
+</div>
+<br />
+<h3>Diagnosticos Previos</h3>
+<div class="row">
+	<div class="col-xl-3">
+		<label>Dia</label>
+		<br />
+		<select style="text-align:left; border-radius:0.3rem; width:200px; height:40px;">
+			<option value="01">01</option>
+			<option value="02">02</option>
+			<option value="03">03</option>
+			<option value="04">04</option>
+			<option value="05">05</option>
+			<option value="06">06</option>
+			<option value="07">07</option>
+			<option value="08">08</option>
+			<option value="09">09</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+			<option value="18">18</option>
+			<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+			<option value="23">23</option>
+			<option value="24">24</option>
+			<option value="25">25</option>
+			<option value="26">26</option>
+			<option value="27">27</option>
+			<option value="28">28</option>
+			<option value="29">29</option>
+			<option value="30">30</option>
+			<option value="31">31</option>
+		</select>
+	</div>
+	<div class="col-xl-3">
+		<label>Mes</label>
+		<br />
+		<select style="text-align:left; border-radius:0.3rem; width:200px; height:40px;">
+			<option value="01">Enero</option>
+			<option value="02">Febrero</option>
+			<option value="03">Marzo</option>
+			<option value="04">Abril</option>
+			<option value="05">Mayo</option>
+			<option value="06">Junio</option>
+			<option value="07">Julio</option>
+			<option value="08">Agosto</option>
+			<option value="09">Septiembre</option>
+			<option value="10">Octubre</option>
+			<option value="11">Noviembre</option>
+			<option value="12">Diciembre</option>
+		</select>
+	</div>
+	<div class="col-xl-3">
+		<label>Año</label>
+		<br />
+		<select style="text-align:left; border-radius:0.3rem; width:200px; height:40px;">
+			<option value="2001">2001</option>
+			<option value="2002">2002</option>
+			<option value="2003">2003</option>
+			<option value="2004">2004</option>
+			<option value="2005">2005</option>
+			<option value="2006">2006</option>
+			<option value="2007">2007</option>
+			<option value="2008">2008</option>
+			<option value="2009">2009</option>
+			<option value="2010">2010</option>
+			<option value="2011">2011</option>
+			<option value="2012">2012</option>
+			<option value="2013">2013</option>
+			<option value="2014">2014</option>
+			<option value="2015">2015</option>
+			<option value="2016">2016</option>
+			<option value="2017">2017</option>
+			<option value="2018">2018</option>
+		</select>
+	</div>
+	<div class="col-xl-3">
+		<br />
+		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Buscar</button>
+	</div>
+</div>
+<br />
+<div class="table-responsive">
+	<table class="table">
+		<tr>
+			<th scope="col">Fecha</th>
+			<th scope="col">Medico</th>
+			<th scope="col">Diagnostico</th>
+		</tr>
+		<tr>
+			<td>99</td>
+			<td>99</td>
+			<td>99</td>
+		</tr>
+	</table>
+</div>
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Resultados</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Pedido de Examenes</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Certificados</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Procedimientos</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Guardar</button>
+</div>
 

@@ -1,8 +1,47 @@
 ﻿
 @{
-    ViewBag.Title = "Ingreso";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Ingreso";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Ingreso</h2>
+<h2 class="text-center">Ingreso</h2>
+<br />
+<div class="row">
+	<div class="col-xl-3">
+		<label>Provedor</label>
+		<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	</div>
+	<div class="col-xl-3">
+		<label>Detalle</label>
+		<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	</div>
+	<div class="col-xl-3">
+		<label>Monto</label>
+		<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	</div>
+	<div class="col-xl-3">
+		<br />
+		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Ingresar</button>
+	</div>
+</div>
+<br />
+<div>
+	<table class="table">
+		<tr>
+			<th scope="col">Provedor</th>
+			<th scope="col">Detalle</th>
+			<th scope="col">Ingreso</th>
+		</tr>
+		<tr>
+			<td scope="col">JUAN DAVID MOLINA PEREZ</td>
+			<td scope="col">00001</td>
+			<td scope="col">1234567890</td>
+	</table>
+</div>
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Eliminar</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Modificar</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Informe</button>
+</div>
 

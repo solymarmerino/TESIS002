@@ -1,8 +1,43 @@
 ﻿
 @{
-    ViewBag.Title = "Informe";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Informe";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Informe</h2>
+<h2 class="text-center">Informe</h2>
+<br />
+<div class="row">
+	<div class="col-xl-6">
+		<input type="radio" name="periodo" value="diario" /> Diario
+		<input type="radio" name="periodo" value="mensual" /> Mensual
+		<input type="radio" name="periodo" value="anual" /> Semestral
+	</div>
+
+	<div class="col-xl-5">
+		<input type="radio" name="tipo" value="ingreso" /> Ingreso
+		<input type="radio" name="tipo" value="egreso" /> Egreso
+	</div>
+</div>
+<br />
+<div class="table-responsive">
+	<table class="table">
+		<tr>
+			<th scope="col">Fecha</th>
+			<th scope="col">Provedor</th>
+			<th scope="col">Detalle</th>
+			<th scope="col">Valor</th>
+		</tr>
+		<tr>
+			<td scope="col">JUAN DAVID MOLINA PEREZ</td>
+			<td scope="col">00001</td>
+			<td scope="col">1234567890</td>
+			<td scope="col">MEDICO 1</td>
+		</tr>
+	</table>
+</div>
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Ingresos</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Egresos</button>
+</div>
 
