@@ -273,7 +273,7 @@
     <Content Include="Views\Facturacion\Anular.cshtml" />
     <Content Include="Views\Contabilidad\PagoPersonal.cshtml" />
     <Content Include="Views\Inventario\Mostrar.cshtml" />
-    <Content Include="Views\HistoriaClinica\MostrarPresionArterial.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarPrecionArterial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
