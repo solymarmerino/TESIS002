@@ -23,5 +23,10 @@ namespace TESIS002.Controllers
         {
             return View();
         }
+
+        public ActionResult PagoPersonal()
+        {
+            return View();
+        }
     }
 }
