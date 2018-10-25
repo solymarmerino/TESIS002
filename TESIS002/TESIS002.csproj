@@ -154,6 +154,7 @@
     <Compile Include="Controllers\EnfermeriaController.cs" />
     <Compile Include="Controllers\FacturacionController.cs" />
     <Compile Include="Controllers\HistoriaClinicaController.cs" />
+    <Compile Include="Controllers\InventarioController.cs" />
     <Compile Include="Controllers\LaboratorioController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
@@ -271,6 +272,8 @@
     <Content Include="Views\Facturacion\Crear.cshtml" />
     <Content Include="Views\Facturacion\Anular.cshtml" />
     <Content Include="Views\Contabilidad\PagoPersonal.cshtml" />
+    <Content Include="Views\Inventario\Mostrar.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarPresionArterial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

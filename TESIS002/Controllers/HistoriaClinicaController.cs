@@ -53,5 +53,9 @@ namespace TESIS002.Controllers
         {
             return View();
         }
+        public ActionResult MostrarPresionArterial()
+        {
+            return View();
+        }
     }
 }
