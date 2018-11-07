@@ -18,5 +18,10 @@ namespace TESIS002.Object
         {
             return "admin";
         }
+
+        public string GetTypeUser()
+        {
+            return "admin";
+        }
     }
 }
