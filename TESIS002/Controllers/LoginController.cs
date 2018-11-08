@@ -24,12 +24,17 @@ namespace TESIS002.Controllers
             {
                 Session["login"] = "true";
                 Session["typeUser"] = user.GetTypeUser();
-                return RedirectToAction("Listar","Cita");
+                return RedirectToAction("Lobby","Login");
             }
             else
             {
                 return View();
             }
+        }
+
+        public ActionResult Lobby()
+        {
+            return View();
         }
     }
 }

@@ -276,6 +276,7 @@
     <Content Include="Views\Contabilidad\PagoPersonal.cshtml" />
     <Content Include="Views\Inventario\Mostrar.cshtml" />
     <Content Include="Views\HistoriaClinica\MostrarPrecionArterial.cshtml" />
+    <Content Include="Views\Login\Lobby.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
