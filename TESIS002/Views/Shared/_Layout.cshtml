@@ -18,90 +18,93 @@
 
         <div class="collapse navbar-collapse" id="menuPrincipal">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuPaciente" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Paciente
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="menuPaciente">
-                        <a class="dropdown-item" href="../Paciente/Listar">Listar</a>
-                        <a class="dropdown-item" href="../Paciente/Ingresar">Ingresar</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuCita" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Cita
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="menuCita">
-                        <a class="dropdown-item" href="../Cita/Listar">Listar</a>
-                        <a class="dropdown-item" href="../Cita/Ingresar">Ingresar</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuLaboratorio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Laboratorio
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="menuLaboratorio">
-                        <a class="dropdown-item" href="../Laboratorio/Listar">Listar</a>
-                        <a class="dropdown-item" href="../Laboratorio/Ingresar">Ingresar</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuProcedimineto" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Procedimiento
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="menuProcedimineto">
-                        <a class="dropdown-item" href="../Procedimiento/Listar">Listar</a>
-                        <a class="dropdown-item" href="../Procedimiento/Ingresar">Ingresar</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuContabilidad" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Contabilidad
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="menuContabilidad">
-                        <a class="dropdown-item" href="../Contabilidad/Ingreso">Ingresos</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../Contabilidad/Egreso">Egresos</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../Contabilidad/Informe">Informe</a>
-                        <a class="dropdown-item" href="../Contabilidad/PagoPersonal">Pago Personal</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuFacturacion" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Facturación
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="menuFacturacion">
-                        <a class="dropdown-item" href="../Facturacion/Crear">Crear</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../Facturacion/Anular">Anular</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Personal
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="menuUsuario">
-                        <a class="dropdown-item" href="../Personal/Listar">Listar</a>
-                        <a class="dropdown-item" href="../Personal/Ingresar">Ingresar</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Historia Clinica
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="menuUsuario">
-                        <a class="dropdown-item" href="../HistoriaClinica/Mostrar">Mostrar</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Inventario
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="menuUsuario">
-                        <a class="dropdown-item" href="../Inventario/Mostrar">Mostrar</a>
-                    </div>
-                </li>
+                @if (Session["login"].Equals("true"))
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuPaciente" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Paciente
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="menuPaciente">
+                            <a class="dropdown-item" href="../Paciente/Listar">Listar</a>
+                            <a class="dropdown-item" href="../Paciente/Ingresar">Ingresar</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuCita" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cita
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="menuCita">
+                            <a class="dropdown-item" href="../Cita/Listar">Listar</a>
+                            <a class="dropdown-item" href="../Cita/Ingresar">Ingresar</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuLaboratorio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Laboratorio
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="menuLaboratorio">
+                            <a class="dropdown-item" href="../Laboratorio/Listar">Listar</a>
+                            <a class="dropdown-item" href="../Laboratorio/Ingresar">Ingresar</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuProcedimineto" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Procedimiento
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="menuProcedimineto">
+                            <a class="dropdown-item" href="../Procedimiento/Listar">Listar</a>
+                            <a class="dropdown-item" href="../Procedimiento/Ingresar">Ingresar</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuContabilidad" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Contabilidad
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="menuContabilidad">
+                            <a class="dropdown-item" href="../Contabilidad/Ingreso">Ingresos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../Contabilidad/Egreso">Egresos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../Contabilidad/Informe">Informe</a>
+                            <a class="dropdown-item" href="../Contabilidad/PagoPersonal">Pago Personal</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuFacturacion" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Facturación
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="menuFacturacion">
+                            <a class="dropdown-item" href="../Facturacion/Crear">Crear</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../Facturacion/Anular">Anular</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Personal
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="menuUsuario">
+                            <a class="dropdown-item" href="../Personal/Listar">Listar</a>
+                            <a class="dropdown-item" href="../Personal/Ingresar">Ingresar</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Historia Clinica
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="menuUsuario">
+                            <a class="dropdown-item" href="../HistoriaClinica/Mostrar">Mostrar</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Inventario
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="menuUsuario">
+                            <a class="dropdown-item" href="../Inventario/Mostrar">Mostrar</a>
+                        </div>
+                    </li>
+                }
             </ul>
         </div>
     </nav>
