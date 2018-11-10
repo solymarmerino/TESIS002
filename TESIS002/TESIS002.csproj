@@ -163,6 +163,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Object\Personal.cs" />
     <Compile Include="Object\Validacion.cs" />
     <Compile Include="Object\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -276,6 +277,7 @@
     <Content Include="Views\Contabilidad\PagoPersonal.cshtml" />
     <Content Include="Views\Inventario\Mostrar.cshtml" />
     <Content Include="Views\HistoriaClinica\MostrarPrecionArterial.cshtml" />
+    <Content Include="Views\Login\Lobby.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

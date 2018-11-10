@@ -23,12 +23,25 @@ namespace TESIS002.Controllers
             if (!string.IsNullOrEmpty(user.UserName) && user.UserName.Equals(user.GetUserAdmin()))
             {
                 Session["login"] = "true";
-                return RedirectToAction("Listar","Cita");
+                Session["typeUser"] = user.GetTypeUser();
+                return RedirectToAction("Lobby","Login");
             }
             else
             {
                 return View();
             }
+        }
+
+        public ActionResult Lobby()
+        {
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session["login"] = "false";
+            Session["typeUser"] = "";
+            return RedirectToAction("Login", "Login");
         }
     }
 }
