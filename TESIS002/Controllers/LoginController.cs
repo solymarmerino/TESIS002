@@ -36,5 +36,12 @@ namespace TESIS002.Controllers
         {
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            Session["login"] = "false";
+            Session["typeUser"] = "";
+            return RedirectToAction("Login", "Login");
+        }
     }
 }
