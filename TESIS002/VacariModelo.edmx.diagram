@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="077626204e344895b2e04d52e2d94996" Name="Diagram1" >
+        <EntityTypeShape EntityType="VacariModelo.Paciente" Width="1.5" PointX="7.125" PointY="0.5" />
+        <EntityTypeShape EntityType="VacariModelo.Cliente" Width="1.5" PointX="5.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VacariModelo.ContactoEmergencia" Width="1.5" PointX="8.875" PointY="0.5" />
+        <InheritanceConnector EntityType="VacariModelo.Cliente" />
+        <AssociationConnector Association="VacariModelo.PacienteContactoEmergencia" />
+        <EntityTypeShape EntityType="VacariModelo.Diagnostico" Width="1.5" PointX="8.875" PointY="2.75" />
+        <AssociationConnector Association="VacariModelo.PacienteDiagnostico" />
+        <EntityTypeShape EntityType="VacariModelo.Enfermedad" Width="1.5" PointX="10.75" PointY="2.75" />
+        <AssociationConnector Association="VacariModelo.DiagnosticoEnfermedad" />
+        <EntityTypeShape EntityType="VacariModelo.SignosVitales" Width="1.5" PointX="7.125" PointY="4.125" />
+        <AssociationConnector Association="VacariModelo.PacienteSignosVitales" />
+        <EntityTypeShape EntityType="VacariModelo.CitaMedica" Width="1.5" PointX="5.25" PointY="3.125" />
+        <AssociationConnector Association="VacariModelo.PacienteCitaMedica" />
+        <EntityTypeShape EntityType="VacariModelo.TipoCitaMedica" Width="1.375" PointX="3.5" PointY="3.5" />
+        <AssociationConnector Association="VacariModelo.CitaMedicaTipoCitaMedica" />
+        <EntityTypeShape EntityType="VacariModelo.Procedimiento" Width="1.5" PointX="5.25" PointY="5.25" />
+        <AssociationConnector Association="VacariModelo.PacienteProcedimiento" />
+        <EntityTypeShape EntityType="VacariModelo.Factura" Width="1.5" PointX="3.375" PointY="0.5" />
+        <AssociationConnector Association="VacariModelo.ClienteFactura" />
+        <EntityTypeShape EntityType="VacariModelo.DetalleFactura" Width="1.5" PointX="1.5" PointY="0.5" />
+        <AssociationConnector Association="VacariModelo.FacturaDetalleFactura" />
+        <AssociationConnector Association="VacariModelo.CitaMedicaDetalleFactura" />
+        <AssociationConnector Association="VacariModelo.ProcedimientoDetalleFactura" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

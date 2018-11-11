@@ -179,6 +179,11 @@
     <Compile Include="Object\Validacion.cs" />
     <Compile Include="Object\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VacariModelo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VacariModelo.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -290,6 +295,13 @@
     <Content Include="Views\Inventario\Mostrar.cshtml" />
     <Content Include="Views\HistoriaClinica\MostrarPrecionArterial.cshtml" />
     <Content Include="Views\Login\Lobby.cshtml" />
+    <EntityDeploy Include="VacariModelo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VacariModelo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="VacariModelo.edmx.diagram">
+      <DependentUpon>VacariModelo.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

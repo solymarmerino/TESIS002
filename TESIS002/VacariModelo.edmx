@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="VacariModelo.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="VacariModeloTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="VacariModelo" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="VacariModeloContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PacienteSet" EntityType="VacariModelo.Paciente" />
+          <EntitySet Name="ContactoEmergenciaSet" EntityType="VacariModelo.ContactoEmergencia" />
+          <AssociationSet Name="PacienteContactoEmergencia" Association="VacariModelo.PacienteContactoEmergencia">
+            <End Role="Paciente" EntitySet="PacienteSet" />
+            <End Role="ContactoEmergencia" EntitySet="ContactoEmergenciaSet" />
+          </AssociationSet>
+          <EntitySet Name="DiagnosticoSet" EntityType="VacariModelo.Diagnostico" />
+          <AssociationSet Name="PacienteDiagnostico" Association="VacariModelo.PacienteDiagnostico">
+            <End Role="Paciente" EntitySet="PacienteSet" />
+            <End Role="Diagnostico" EntitySet="DiagnosticoSet" />
+          </AssociationSet>
+          <EntitySet Name="EnfermedadSet" EntityType="VacariModelo.Enfermedad" />
+          <AssociationSet Name="DiagnosticoEnfermedad" Association="VacariModelo.DiagnosticoEnfermedad">
+            <End Role="Diagnostico" EntitySet="DiagnosticoSet" />
+            <End Role="Enfermedad" EntitySet="EnfermedadSet" />
+          </AssociationSet>
+          <EntitySet Name="SignosVitalesSet" EntityType="VacariModelo.SignosVitales" />
+          <AssociationSet Name="PacienteSignosVitales" Association="VacariModelo.PacienteSignosVitales">
+            <End Role="Paciente" EntitySet="PacienteSet" />
+            <End Role="SignosVitales" EntitySet="SignosVitalesSet" />
+          </AssociationSet>
+          <EntitySet Name="CitaMedicaSet" EntityType="VacariModelo.CitaMedica" />
+          <AssociationSet Name="PacienteCitaMedica" Association="VacariModelo.PacienteCitaMedica">
+            <End Role="Paciente" EntitySet="PacienteSet" />
+            <End Role="CitaMedica" EntitySet="CitaMedicaSet" />
+          </AssociationSet>
+          <EntitySet Name="TipoCitaMedicaSet" EntityType="VacariModelo.TipoCitaMedica" />
+          <AssociationSet Name="CitaMedicaTipoCitaMedica" Association="VacariModelo.CitaMedicaTipoCitaMedica">
+            <End Role="CitaMedica" EntitySet="CitaMedicaSet" />
+            <End Role="TipoCitaMedica" EntitySet="TipoCitaMedicaSet" />
+          </AssociationSet>
+          <EntitySet Name="ProcedimientoSet" EntityType="VacariModelo.Procedimiento" />
+          <AssociationSet Name="PacienteProcedimiento" Association="VacariModelo.PacienteProcedimiento">
+            <End Role="Paciente" EntitySet="PacienteSet" />
+            <End Role="Procedimiento" EntitySet="ProcedimientoSet" />
+          </AssociationSet>
+          <EntitySet Name="FacturaSet" EntityType="VacariModelo.Factura" />
+          <AssociationSet Name="ClienteFactura" Association="VacariModelo.ClienteFactura">
+            <End Role="Cliente" EntitySet="PacienteSet" />
+            <End Role="Factura" EntitySet="FacturaSet" />
+          </AssociationSet>
+          <EntitySet Name="DetalleFacturaSet" EntityType="VacariModelo.DetalleFactura" />
+          <AssociationSet Name="FacturaDetalleFactura" Association="VacariModelo.FacturaDetalleFactura">
+            <End Role="Factura" EntitySet="FacturaSet" />
+            <End Role="DetalleFactura" EntitySet="DetalleFacturaSet" />
+          </AssociationSet>
+          <AssociationSet Name="CitaMedicaDetalleFactura" Association="VacariModelo.CitaMedicaDetalleFactura">
+            <End Role="CitaMedica" EntitySet="CitaMedicaSet" />
+            <End Role="DetalleFactura" EntitySet="DetalleFacturaSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProcedimientoDetalleFactura" Association="VacariModelo.ProcedimientoDetalleFactura">
+            <End Role="Procedimiento" EntitySet="ProcedimientoSet" />
+            <End Role="DetalleFactura" EntitySet="DetalleFacturaSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="IdPaciente" />
+          </Key>
+          <Property Name="IdPaciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaNacimientoPaciente" Type="DateTime" Nullable="false" />
+          <Property Name="EstadoCivilPaciente" Type="String" Nullable="false" />
+          <Property Name="GeneroPaciente" Type="String" Nullable="false" />
+          <Property Name="TipoSangrePaciente" Type="String" Nullable="false" />
+          <Property Name="AlergiasPaciente" Type="String" Nullable="false" />
+          <NavigationProperty Name="ContactoEmergencia" Relationship="VacariModelo.PacienteContactoEmergencia" FromRole="Paciente" ToRole="ContactoEmergencia" />
+          <NavigationProperty Name="Diagnostico" Relationship="VacariModelo.PacienteDiagnostico" FromRole="Paciente" ToRole="Diagnostico" />
+          <NavigationProperty Name="SignosVitales" Relationship="VacariModelo.PacienteSignosVitales" FromRole="Paciente" ToRole="SignosVitales" />
+          <Property Name="HistoriaClinicaPaciente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CitaMedica" Relationship="VacariModelo.PacienteCitaMedica" FromRole="Paciente" ToRole="CitaMedica" />
+          <NavigationProperty Name="Procedimiento" Relationship="VacariModelo.PacienteProcedimiento" FromRole="Paciente" ToRole="Procedimiento" />
+        </EntityType>
+        <EntityType Name="Cliente" BaseType="VacariModelo.Paciente">
+          <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCliente" Type="String" Nullable="false" />
+          <Property Name="CedulaCliente" Type="Int32" Nullable="false" />
+          <Property Name="DireccionCliente" Type="String" Nullable="false" />
+          <Property Name="TelefonoCliente" Type="Int32" Nullable="false" />
+          <Property Name="EmailCliente" Type="String" Nullable="false" />
+          <NavigationProperty Name="Factura" Relationship="VacariModelo.ClienteFactura" FromRole="Cliente" ToRole="Factura" />
+        </EntityType>
+        <EntityType Name="ContactoEmergencia">
+          <Key>
+            <PropertyRef Name="IdContactoEmergencia" />
+          </Key>
+          <Property Name="IdContactoEmergencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreContactoEmergencia" Type="String" Nullable="false" />
+          <Property Name="AfinidadContactoEmergencia" Type="String" Nullable="false" />
+          <Property Name="TelefonoContactoEmergencia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Paciente" Relationship="VacariModelo.PacienteContactoEmergencia" FromRole="ContactoEmergencia" ToRole="Paciente" />
+        </EntityType>
+        <Association Name="PacienteContactoEmergencia">
+          <End Type="VacariModelo.Paciente" Role="Paciente" Multiplicity="1" />
+          <End Type="VacariModelo.ContactoEmergencia" Role="ContactoEmergencia" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Diagnostico">
+          <Key>
+            <PropertyRef Name="IdDiagnostico" />
+          </Key>
+          <Property Name="IdDiagnostico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaDiagnostico" Type="DateTime" Nullable="false" />
+          <Property Name="SubjetivoDiagnostico" Type="String" Nullable="false" />
+          <Property Name="ObjetivoDiagnostico" Type="String" Nullable="false" />
+          <Property Name="AnalisisDiagnostico" Type="String" Nullable="false" />
+          <Property Name="PlanDiagnostico" Type="String" Nullable="false" />
+          <Property Name="DiasReposoDiagnostico" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Paciente" Relationship="VacariModelo.PacienteDiagnostico" FromRole="Diagnostico" ToRole="Paciente" />
+          <NavigationProperty Name="Enfermedad" Relationship="VacariModelo.DiagnosticoEnfermedad" FromRole="Diagnostico" ToRole="Enfermedad" />
+        </EntityType>
+        <Association Name="PacienteDiagnostico">
+          <End Type="VacariModelo.Paciente" Role="Paciente" Multiplicity="1" />
+          <End Type="VacariModelo.Diagnostico" Role="Diagnostico" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Enfermedad">
+          <Key>
+            <PropertyRef Name="IdEnfermedad" />
+          </Key>
+          <Property Name="IdEnfermedad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreEnfermedad" Type="String" Nullable="false" />
+          <Property Name="CIE10Enfermedad" Type="String" Nullable="false" />
+          <NavigationProperty Name="Diagnostico" Relationship="VacariModelo.DiagnosticoEnfermedad" FromRole="Enfermedad" ToRole="Diagnostico" />
+        </EntityType>
+        <Association Name="DiagnosticoEnfermedad">
+          <End Type="VacariModelo.Diagnostico" Role="Diagnostico" Multiplicity="1" />
+          <End Type="VacariModelo.Enfermedad" Role="Enfermedad" Multiplicity="1" />
+        </Association>
+        <EntityType Name="SignosVitales">
+          <Key>
+            <PropertyRef Name="IdSignosVitales" />
+          </Key>
+          <Property Name="IdSignosVitales" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaSignosVitales" Type="DateTime" Nullable="false" />
+          <Property Name="Temperatura" Type="Int32" Nullable="false" />
+          <Property Name="Peso" Type="Decimal" Nullable="false" />
+          <Property Name="PresionArterial" Type="String" Nullable="false" />
+          <Property Name="FrecuenciaCardiaca" Type="Int32" Nullable="false" />
+          <Property Name="FrecuenciaRespiratoria" Type="Int32" Nullable="false" />
+          <Property Name="Talla" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Paciente" Relationship="VacariModelo.PacienteSignosVitales" FromRole="SignosVitales" ToRole="Paciente" />
+        </EntityType>
+        <Association Name="PacienteSignosVitales">
+          <End Type="VacariModelo.Paciente" Role="Paciente" Multiplicity="1" />
+          <End Type="VacariModelo.SignosVitales" Role="SignosVitales" Multiplicity="*" />
+        </Association>
+        <EntityType Name="CitaMedica">
+          <Key>
+            <PropertyRef Name="IdCitaMedica" />
+          </Key>
+          <Property Name="IdCitaMedica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaCitaMedica" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Paciente" Relationship="VacariModelo.PacienteCitaMedica" FromRole="CitaMedica" ToRole="Paciente" />
+          <NavigationProperty Name="TipoCitaMedica" Relationship="VacariModelo.CitaMedicaTipoCitaMedica" FromRole="CitaMedica" ToRole="TipoCitaMedica" />
+          <NavigationProperty Name="DetalleFactura" Relationship="VacariModelo.CitaMedicaDetalleFactura" FromRole="CitaMedica" ToRole="DetalleFactura" />
+        </EntityType>
+        <Association Name="PacienteCitaMedica">
+          <End Type="VacariModelo.Paciente" Role="Paciente" Multiplicity="1" />
+          <End Type="VacariModelo.CitaMedica" Role="CitaMedica" Multiplicity="*" />
+        </Association>
+        <EntityType Name="TipoCitaMedica">
+          <Key>
+            <PropertyRef Name="IdTipoCitaMedica" />
+          </Key>
+          <Property Name="IdTipoCitaMedica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipoCitaMedica" Type="String" Nullable="false" />
+          <Property Name="PrecioTipoCita" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="CitaMedica" Relationship="VacariModelo.CitaMedicaTipoCitaMedica" FromRole="TipoCitaMedica" ToRole="CitaMedica" />
+        </EntityType>
+        <Association Name="CitaMedicaTipoCitaMedica">
+          <End Type="VacariModelo.CitaMedica" Role="CitaMedica" Multiplicity="1" />
+          <End Type="VacariModelo.TipoCitaMedica" Role="TipoCitaMedica" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Procedimiento">
+          <Key>
+            <PropertyRef Name="IdProcedimiento" />
+          </Key>
+          <Property Name="IdProcedimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreProcedimiento" Type="String" Nullable="false" />
+          <Property Name="PrecioProcedimiento" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Paciente" Relationship="VacariModelo.PacienteProcedimiento" FromRole="Procedimiento" ToRole="Paciente" />
+          <NavigationProperty Name="DetalleFactura" Relationship="VacariModelo.ProcedimientoDetalleFactura" FromRole="Procedimiento" ToRole="DetalleFactura" />
+        </EntityType>
+        <Association Name="PacienteProcedimiento">
+          <End Type="VacariModelo.Paciente" Role="Paciente" Multiplicity="1" />
+          <End Type="VacariModelo.Procedimiento" Role="Procedimiento" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="IdFactura" />
+          </Key>
+          <Property Name="IdFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumeroFactura" Type="Int32" Nullable="false" />
+          <Property Name="FechaFactura" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="VacariModelo.ClienteFactura" FromRole="Factura" ToRole="Cliente" />
+          <NavigationProperty Name="DetalleFactura" Relationship="VacariModelo.FacturaDetalleFactura" FromRole="Factura" ToRole="DetalleFactura" />
+        </EntityType>
+        <Association Name="ClienteFactura">
+          <End Type="VacariModelo.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="VacariModelo.Factura" Role="Factura" Multiplicity="*" />
+        </Association>
+        <EntityType Name="DetalleFactura">
+          <Key>
+            <PropertyRef Name="IdDetalleFactura" />
+          </Key>
+          <Property Name="IdDetalleFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Factura" Relationship="VacariModelo.FacturaDetalleFactura" FromRole="DetalleFactura" ToRole="Factura" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+          <NavigationProperty Name="CitaMedica" Relationship="VacariModelo.CitaMedicaDetalleFactura" FromRole="DetalleFactura" ToRole="CitaMedica" />
+          <NavigationProperty Name="Procedimiento" Relationship="VacariModelo.ProcedimientoDetalleFactura" FromRole="DetalleFactura" ToRole="Procedimiento" />
+        </EntityType>
+        <Association Name="FacturaDetalleFactura">
+          <End Type="VacariModelo.Factura" Role="Factura" Multiplicity="1" />
+          <End Type="VacariModelo.DetalleFactura" Role="DetalleFactura" Multiplicity="*" />
+        </Association>
+        <Association Name="CitaMedicaDetalleFactura">
+          <End Type="VacariModelo.CitaMedica" Role="CitaMedica" Multiplicity="*" />
+          <End Type="VacariModelo.DetalleFactura" Role="DetalleFactura" Multiplicity="1" />
+        </Association>
+        <Association Name="ProcedimientoDetalleFactura">
+          <End Type="VacariModelo.Procedimiento" Role="Procedimiento" Multiplicity="*" />
+          <End Type="VacariModelo.DetalleFactura" Role="DetalleFactura" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="VacariModelo" />
+        <Alias Key="Target" Value="VacariModelo.Store" />
+        <EntityContainerMapping CdmEntityContainer="VacariModeloContainer" StorageEntityContainer="VacariModeloTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
