@@ -1,4 +1,5 @@
-﻿
+﻿@model TESIS002.Models.Paciente
+
 @{
 	ViewBag.Title = "Buscar";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,12 +11,10 @@
 		<div class="col-md-3">
 			<p>
 				<label>Nombre</label>
-				<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+				<input name="nombrePaciente" style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
 			</p>
 		</div>
 	</form>
-	
-
 	<div class="col-md-3">
 		<p>
 			<label>Cedula</label>
@@ -45,9 +44,9 @@
 			<th scope="col">C&eacute;dula</th>
 		</tr>
 		<tr>
-			<td>JUAN DAVID MOLINA PEREZ</td>
-			<td>00001</td>
-			<td>1234567890</td>
+			<td>@Html.DisplayFor(model => model.NombrePaciente)</td>
+			<td>@Html.DisplayFor(model => model.CedulaPaciente)</td>
+			<td>@Html.DisplayFor(model => model.HistoriaClinicaPaciente)</td>
 		</tr>
 	</table>
 </p>

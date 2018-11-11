@@ -7,9 +7,10 @@ using TESIS002.Models;
 
 namespace TESIS002.Controllers
 {
-    public class PacienteController : Controller
-    {
+	public class PacienteController : Controller
+	{
         // GET: Paciente
+		[HttpGet]
         public ActionResult Listar(string nombrePaciente)
         {
 			var ListaPaciente = new List<Paciente>
