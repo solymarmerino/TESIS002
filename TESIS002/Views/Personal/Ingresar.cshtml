@@ -1,4 +1,4 @@
-﻿@model TESIS002.Object.Personal
+﻿@model TESIS002.Models.PersonalModel
 
 @{
 	ViewBag.Title = "Ingresar";
@@ -13,21 +13,21 @@
             <p>
                 <label>Nombre Completo</label>
                 <br />
-                <input name="employeeName" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.EmployeeName : string.Empty)"/>
+                <input name="NombrePersonal" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.NombrePersonal : string.Empty)"/>
             </p>
         </div>
         <div class="col-xl-3">
             <p>
                 <label>Cedula</label>
                 <br />
-                <input name="employeeID" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.EmployeeID : string.Empty)"/>
+                <input name="IdPersonal" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.IdPersonal : string.Empty)"/>
             </p>
         </div>
         <div class="col-xl-3">
             <p>
                 <label>Telefono</label>
                 <br />
-                <input name="employeePhone" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.EmployeePhone : string.Empty)"/>
+                <input name="TelefonoPersonal" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.TelefonoPersonal : string.Empty)"/>
             </p>
         </div>
     </div>
@@ -36,7 +36,7 @@
             <p>
                 <label>Cargo</label>
                 <br />
-                <select name="employeePosition" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+                <select name="CargoPersonal" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
                     <option value="administrador">Administrador</option>
                     <option value="enfermera">Enfermera</option>
                     <option value="laboratorista">Laboratorista</option>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TESIS002.Object;
+using TESIS002.Models;
 
 namespace TESIS002.Controllers
 {
@@ -18,12 +18,12 @@ namespace TESIS002.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Usuario user)
+        public ActionResult Login(UsuarioModel usuario)
         {
-            if (!string.IsNullOrEmpty(user.UserName) && user.UserName.Equals(user.GetUserAdmin()))
+            if (!string.IsNullOrEmpty(usuario.NombreUsuario) && usuario.NombreUsuario.Equals(usuario.GetUsuarioAdministrador()))
             {
                 Session["login"] = "true";
-                Session["typeUser"] = user.GetTypeUser();
+                Session["typeUser"] = usuario.GetTipoUsuario();
                 return RedirectToAction("Lobby","Login");
             }
             else

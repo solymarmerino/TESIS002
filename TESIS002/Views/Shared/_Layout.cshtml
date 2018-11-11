@@ -27,7 +27,7 @@
             <ul class="navbar-nav mr-auto">
                 @if (Session["login"].Equals("true"))
                 {
-                    if (Session["typeUser"].Equals("admin") || Session["typeUser"].Equals("receptionist"))
+                    if (Session["typeUser"].Equals("administrador") || Session["typeUser"].Equals("recepcionista"))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="menuPaciente" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,7 +40,7 @@
                         </li>
                     }
 
-                    if (Session["typeUser"].Equals("admin") || Session["typeUser"].Equals("receptionist") || Session["typeUser"].Equals("doctor") || Session["typeUser"].Equals("nurse"))
+                    if (Session["typeUser"].Equals("administrador") || Session["typeUser"].Equals("recepcionista") || Session["typeUser"].Equals("doctor") || Session["typeUser"].Equals("enfermera"))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="menuCita" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,7 +52,7 @@
                             </div>
                         </li>
                     }
-                    if (Session["typeUser"].Equals("admin") || Session["typeUser"].Equals("lab") || Session["typeUser"].Equals("doctor"))
+                    if (Session["typeUser"].Equals("administrador") || Session["typeUser"].Equals("laboratorista") || Session["typeUser"].Equals("doctor"))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="menuLaboratorio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,7 +64,7 @@
                             </div>
                         </li>
                     }
-                    if (Session["typeUser"].Equals("admin") || Session["typeUser"].Equals("receptionist") || Session["typeUser"].Equals("doctor"))
+                    if (Session["typeUser"].Equals("administrador") || Session["typeUser"].Equals("recepcionista") || Session["typeUser"].Equals("doctor"))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="menuProcedimineto" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,7 +76,7 @@
                             </div>
                         </li>
                     }
-                    if (Session["typeUser"].Equals("admin") || Session["typeUser"].Equals("receptionist"))
+                    if (Session["typeUser"].Equals("administrador") || Session["typeUser"].Equals("recepcionista"))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="menuContabilidad" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,7 +92,7 @@
                             </div>
                         </li>
                     }
-                    if (Session["typeUser"].Equals("admin") || Session["typeUser"].Equals("receptionist"))
+                    if (Session["typeUser"].Equals("administrador") || Session["typeUser"].Equals("recepcionista"))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="menuFacturacion" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -105,7 +105,7 @@
                             </div>
                         </li>
                     }
-                    if (Session["typeUser"].Equals("admin") || Session["typeUser"].Equals("receptionist"))
+                    if (Session["typeUser"].Equals("administrador") || Session["typeUser"].Equals("recepcionista"))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="menuUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -117,7 +117,7 @@
                             </div>
                         </li>
                     }
-                    if (Session["typeUser"].Equals("admin") || Session["typeUser"].Equals("receptionist") || Session["typeUser"].Equals("doctor") || Session["typeUser"].Equals("nurse"))
+                    if (Session["typeUser"].Equals("administrador") || Session["typeUser"].Equals("recepcionista") || Session["typeUser"].Equals("doctor") || Session["typeUser"].Equals("enfermera"))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="menuUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -128,7 +128,7 @@
                             </div>
                         </li>
                     }
-                    if (Session["typeUser"].Equals("admin") || Session["typeUser"].Equals("receptionist"))
+                    if (Session["typeUser"].Equals("administrador") || Session["typeUser"].Equals("recepcionista"))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="menuUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

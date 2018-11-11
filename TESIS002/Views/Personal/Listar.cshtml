@@ -1,4 +1,4 @@
-﻿
+﻿@model List<TESIS002.Models.PersonalModel>
 @{
 	ViewBag.Title = "Listar";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,17 +7,23 @@
 <h2 class="text-center">Lista Personal</h2>
 <br />
 <div>
-	<table class="table">
-		<tr>
-			<th scope="col">Nombre</th>
-			<th scope="col">Telefono</th>
-			<th scope="col">Cargo</th>
-		</tr>
-		<tr>
-			<td scope="col">JUAN DAVID MOLINA PEREZ</td>
-			<td scope="col">00001</td>
-			<td scope="col">1234567890</td>
-	</table>
+    <table class="table">
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Cargo</th>
+        </tr>
+        @foreach (var personal in Model)
+        {
+            <tr>
+
+                <td scope="col">@personal.NombrePersonal</td>
+                <td scope="col">@personal.TelefonoPersonal</td>
+                <td scope="col">@personal.CargoPersonal</td>
+
+            </tr>
+        }
+    </table>
 </div>
 <br />
 <div class="text-center">
