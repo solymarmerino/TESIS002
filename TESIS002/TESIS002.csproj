@@ -163,6 +163,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Paciente.cs" />
     <Compile Include="Object\Personal.cs" />
     <Compile Include="Object\Validacion.cs" />
     <Compile Include="Object\Usuario.cs" />
@@ -281,7 +282,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
