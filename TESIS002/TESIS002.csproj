@@ -157,6 +157,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CitaMedica.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactoEmergencia.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\CitaController.cs" />
     <Compile Include="Controllers\ContabilidadController.cs" />
     <Compile Include="Controllers\EnfermeriaController.cs" />
@@ -168,8 +177,35 @@
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
     <Compile Include="Controllers\ProcedimientoController.cs" />
+    <Compile Include="DetalleFactura.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetallePedidoMedico.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostico.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Egreso.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enfermedad.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExamenMedico.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Factura.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Paciente.cs" />
     <Compile Include="Models\PersonalModel.cs" />
@@ -178,7 +214,44 @@
     <Compile Include="Object\Personal.cs" />
     <Compile Include="Object\Validacion.cs" />
     <Compile Include="Object\Usuario.cs" />
+    <Compile Include="Paciente.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PagoEmpleado.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoExamenMedico.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persona.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Procedimiento.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Producto.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignosVitales.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoCitaMedica.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoProcedimiento.cs">
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VacariModelo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VacariModelo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VacariModelo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VacariModelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="VacariModelo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -186,6 +259,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\BDVacari.mdf" />
+    <Content Include="App_Data\BDVacari_log.ldf">
+      <DependentUpon>BDVacari.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -240,6 +317,17 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="VacariModelo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VacariModelo.Context.cs</LastGenOutput>
+      <DependentUpon>VacariModelo.edmx</DependentUpon>
+    </Content>
+    <Content Include="VacariModelo.edmx.sql" />
+    <Content Include="VacariModelo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VacariModelo.cs</LastGenOutput>
+      <DependentUpon>VacariModelo.edmx</DependentUpon>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -303,9 +391,7 @@
       <DependentUpon>VacariModelo.edmx</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />

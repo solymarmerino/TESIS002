@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="077626204e344895b2e04d52e2d94996" Name="Diagram1" ZoomLevel="74" >
         <EntityTypeShape EntityType="VacariModelo.Paciente" Width="1.5" PointX="7.375" PointY="2.875" />
-        <EntityTypeShape EntityType="VacariModelo.Cliente" Width="1.5" PointX="1.125" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VacariModelo.Cliente" Width="1.5" PointX="1" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="VacariModelo.ContactoEmergencia" Width="1.5" PointX="9.375" PointY="2.875" />
         <AssociationConnector Association="VacariModelo.PacienteContactoEmergencia" />
         <EntityTypeShape EntityType="VacariModelo.Diagnostico" Width="1.5" PointX="9.625" PointY="5.125" />
@@ -32,12 +32,11 @@
         <AssociationConnector Association="VacariModelo.PedidoExamenMedicoDetallePedidoMedico" />
         <EntityTypeShape EntityType="VacariModelo.ExamenMedico" Width="1.5" PointX="4" PointY="10.75" />
         <AssociationConnector Association="VacariModelo.DetallePedidoMedicoExamenMedico" />
-        <AssociationConnector Association="VacariModelo.DetallePedidoMedicoDetalleFactura" />
-        <EntityTypeShape EntityType="VacariModelo.Persona" Width="1.5" PointX="7.375" PointY="0.5" />
+        <EntityTypeShape EntityType="VacariModelo.Persona" Width="1.5" PointX="7.25" PointY="0.5" />
         <InheritanceConnector EntityType="VacariModelo.Cliente" />
         <InheritanceConnector EntityType="VacariModelo.Paciente" />
         <AssociationConnector Association="VacariModelo.ClienteFactura" />
-        <EntityTypeShape EntityType="VacariModelo.Empleado" Width="1.5" PointX="13" PointY="0.5" />
+        <EntityTypeShape EntityType="VacariModelo.Empleado" Width="1.5" PointX="12.875" PointY="0.5" />
         <InheritanceConnector EntityType="VacariModelo.Empleado" />
         <EntityTypeShape EntityType="VacariModelo.Ingreso" Width="1.5" PointX="6.875" PointY="11.875" />
         <EntityTypeShape EntityType="VacariModelo.Egreso" Width="1.5" PointX="9.375" PointY="11.875" />
@@ -48,6 +47,7 @@
         <AssociationConnector Association="VacariModelo.ProcedimientoTipoProcedimiento" />
         <AssociationConnector Association="VacariModelo.TipoProcedimientoDetalleFactura" />
         <AssociationConnector Association="VacariModelo.EmpleadoPagoEmpleado" />
+        <AssociationConnector Association="VacariModelo.ExamenMedicoDetalleFactura" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
