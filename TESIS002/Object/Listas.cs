@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using TESIS002.Models;
@@ -12,21 +13,47 @@ namespace TESIS002.Object
 
         public Listas()
         {
-            ListaPersonal.Add(new PersonalModel() { IdPersonal = "1111111111", NombrePersonal = "Administrador", TelefonoPersonal = "1111111111", CargoPersonal = "administrador" });
-            ListaPersonal.Add(new PersonalModel() { IdPersonal = "2222222222", NombrePersonal = "Enfermera", TelefonoPersonal = "2222222222", CargoPersonal = "enfermera" });
-            ListaPersonal.Add(new PersonalModel() { IdPersonal = "3333333333", NombrePersonal = "Laboratorista", TelefonoPersonal = "3333333333", CargoPersonal = "laboratorista" });
-            ListaPersonal.Add(new PersonalModel() { IdPersonal = "4444444444", NombrePersonal = "Medico", TelefonoPersonal = "4444444444", CargoPersonal = "medico" });
-            ListaPersonal.Add(new PersonalModel() { IdPersonal = "5555555555", NombrePersonal = "Recepcionista", TelefonoPersonal = "5555555555", CargoPersonal = "recepcionista" });
-        }
-        public List<PersonalModel> getListaPersonal()
-        {
-            return this.ListaPersonal;
+           
         }
 
         public void addListaPersonal(PersonalModel empleado)
         {
-            ListaPersonal.Add(empleado);
+            string rutaCompleta = @"E:\salida.txt";
+
+            using (StreamWriter file = new StreamWriter(rutaCompleta, true))
+            {
+                string texto = $"{empleado.NombrePersonal};{empleado.IdPersonal};{empleado.TelefonoPersonal};{empleado.CargoPersonal}";
+                file.WriteLine(texto); 
+                file.Close();
+            }
         }
 
+        public List<PersonalModel> getListaPersonal()
+        {
+            string rutacompleta = @"E:\salida.txt";
+            string[] renglones = File.ReadAllLines(rutacompleta);
+
+            try
+            {
+                foreach (var linea in renglones)
+                {
+                    PersonalModel personal = new PersonalModel();
+                    string[] datos = linea.Split(';');
+                    personal.NombrePersonal = datos[0];
+                    personal.IdPersonal = datos[1];
+                    personal.TelefonoPersonal = datos[2];
+                    personal.CargoPersonal = datos[3];
+
+                    this.ListaPersonal.Add(personal);
+           
+                }
+                return this.ListaPersonal;
+            }
+
+            catch (Exception e)
+            {
+                return this.ListaPersonal;
+            }
+        }
     }
 }

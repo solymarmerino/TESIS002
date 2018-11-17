@@ -181,6 +181,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\VACARI.mdf" />
+    <Content Include="App_Data\VACARI_log.ldf">
+      <DependentUpon>VACARI.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -291,9 +295,7 @@
     <Content Include="Views\HistoriaClinica\MostrarPrecionArterial.cshtml" />
     <Content Include="Views\Login\Lobby.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
