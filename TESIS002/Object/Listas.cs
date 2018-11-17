@@ -18,7 +18,7 @@ namespace TESIS002.Object
 
         public void addListaPersonal(PersonalModel empleado)
         {
-            string rutaCompleta = @"D:\salida.txt";
+            string rutaCompleta = @"E:\salida.txt";
 
             using (StreamWriter file = new StreamWriter(rutaCompleta, true))
             {
@@ -30,7 +30,7 @@ namespace TESIS002.Object
 
         public List<PersonalModel> getListaPersonal()
         {
-            string rutacompleta = @"D:\salida.txt";
+            string rutacompleta = @"E:\salida.txt";
             string[] renglones = File.ReadAllLines(rutacompleta);
 
             try
