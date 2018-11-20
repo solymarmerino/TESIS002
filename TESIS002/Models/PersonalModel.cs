@@ -11,5 +11,7 @@ namespace TESIS002.Models
         public string IdPersonal { get; set; }
         public string TelefonoPersonal { get; set; }
         public string CargoPersonal { get; set; }
+        public string CedulaPersonal { get; set; }
+        public bool CedulaValida { get; set; }
     }
 }
