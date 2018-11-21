@@ -21,7 +21,8 @@
             <p>
                 <label>Cedula</label>
                 <br />
-                <input name="CedulaPersonal" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.CedulaPersonal : string.Empty)" />
+                <input id="ced" name="CedulaPersonal" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"  value="@(Model!=null ? Model.CedulaPersonal : string.Empty)" />
+                <label id="salida"></label>
             </p>
         </div>
         <div class="col-xl-3">
