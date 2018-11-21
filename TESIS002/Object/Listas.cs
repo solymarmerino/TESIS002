@@ -18,11 +18,11 @@ namespace TESIS002.Object
 
         public void addListaPersonal(PersonalModel empleado)
         {
-            string rutaCompleta = @"E:\salida.txt";
+            string rutaCompleta = @"E:\Personal.txt";
 
             using (StreamWriter file = new StreamWriter(rutaCompleta, true))
             {
-                string texto = $"{empleado.NombrePersonal};{empleado.IdPersonal};{empleado.TelefonoPersonal};{empleado.CargoPersonal}";
+                string texto = $"{empleado.IdPersonal};{empleado.NombrePersonal};{empleado.CedulaPersonal};{empleado.TelefonoPersonal};{empleado.CargoPersonal}";
                 file.WriteLine(texto); 
                 file.Close();
             }
@@ -30,7 +30,7 @@ namespace TESIS002.Object
 
         public List<PersonalModel> getListaPersonal()
         {
-            string rutacompleta = @"E:\salida.txt";
+            string rutacompleta = @"E:\Personal.txt";
             string[] renglones = File.ReadAllLines(rutacompleta);
 
             try
@@ -39,10 +39,11 @@ namespace TESIS002.Object
                 {
                     PersonalModel personal = new PersonalModel();
                     string[] datos = linea.Split(';');
-                    personal.NombrePersonal = datos[0];
-                    personal.IdPersonal = datos[1];
-                    personal.TelefonoPersonal = datos[2];
-                    personal.CargoPersonal = datos[3];
+                    personal.IdPersonal = datos[0];
+                    personal.NombrePersonal = datos[1];
+                    personal.CedulaPersonal = datos[2];
+                    personal.TelefonoPersonal = datos[3];
+                    personal.CargoPersonal = datos[4];
 
                     this.ListaPersonal.Add(personal);
            
@@ -54,6 +55,44 @@ namespace TESIS002.Object
             {
                 return this.ListaPersonal;
             }
+        }
+
+        public PersonalModel searchPersonal(string idPersonal)
+        {
+            this.ListaPersonal = this.getListaPersonal();
+            PersonalModel personalEncontrado = new PersonalModel();
+            foreach (var personal in ListaPersonal)
+            {
+                if (personal.IdPersonal.Equals(idPersonal))
+                {
+                    personalEncontrado = personal;
+                }
+            }
+            return personalEncontrado;
+        }
+
+        public void modifyPersonal(PersonalModel empleado)
+        {
+            string rutacompleta = @"E:\Personal.txt";
+            string[] renglones = File.ReadAllLines(rutacompleta);
+            this.ListaPersonal = this.getListaPersonal();
+            PersonalModel personalEncontrado = new PersonalModel();
+            int cont = 0;
+            foreach (var personal in ListaPersonal)
+            {
+                if (personal.IdPersonal.Equals(empleado.IdPersonal))
+                {
+                    renglones[cont] = $"{empleado.IdPersonal};{empleado.NombrePersonal};{empleado.CedulaPersonal};{empleado.TelefonoPersonal};{empleado.CargoPersonal}";
+                }
+                cont++;
+            }
+            File.WriteAllLines(rutacompleta, renglones);
+        }
+
+        public int numberOfPersonal()
+        {
+            this.ListaPersonal = this.getListaPersonal();
+            return this.ListaPersonal.Count();
         }
     }
 }

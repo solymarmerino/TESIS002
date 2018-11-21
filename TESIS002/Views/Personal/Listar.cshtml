@@ -12,6 +12,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Telefono</th>
             <th scope="col">Cargo</th>
+            <th scope="col"></th>
         </tr>
         @foreach (var personal in Model)
         {
@@ -20,7 +21,11 @@
                 <td scope="col">@personal.NombrePersonal</td>
                 <td scope="col">@personal.TelefonoPersonal</td>
                 <td scope="col">@personal.CargoPersonal</td>
-
+                <td scope="col">
+                    <form action="Modificar" method="post">
+                    <button name="IdPersonal" value="@personal.IdPersonal" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit">Modificar</button>
+                    </form>
+                </td>
             </tr>
         }
     </table>
