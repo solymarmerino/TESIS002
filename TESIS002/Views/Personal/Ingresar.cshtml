@@ -8,62 +8,105 @@
 <h2 class="text-center">Ingreso Personal</h2>
 <br />
 <form id="IngresarPersonal" action="Ingresar" method="post">
-    <div class="row">
-        <div class="col-xl-6">
-            <p>
-                <label>Nombre Completo</label>
-                <br />
-                <input name="NombrePersonal" class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.NombrePersonal : string.Empty)" />
-                
-            </p>
-        </div>
-        <div class="col-xl-3">
-            <p>
-                <label>Cedula</label>
-                <br />
-                <input id="ced" name="CedulaPersonal" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"  value="@(Model!=null ? Model.CedulaPersonal : string.Empty)" />
-                <label id="salida" name="ValidacionCedula"/>
-            </p>
-        </div>
-        <div class="col-xl-3">
-            <p>
-                <label>Telefono</label>
-                <br />
-                <input name="TelefonoPersonal" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.TelefonoPersonal : string.Empty)"/>
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xl-3">
-            <p>
-                <label>Cargo</label>
-                <br />
-                <select name="CargoPersonal" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
-                    <option value="administrador" @(Model!=null ? (Model.CargoPersonal.Equals("recepcionista") ? "selected" : string.Empty) : string.Empty)>Administrador</option>
-                    <option value="enfermera" @(Model!=null ? (Model.CargoPersonal.Equals("enfermera") ? "selected" : string.Empty) : string.Empty)>Enfermera</option>
-                    <option value="laboratorista" @(Model!=null ? (Model.CargoPersonal.Equals("laboratorista") ? "selected" : string.Empty) : string.Empty)>Laboratorista</option>
-                    <option value="medico" @(Model!=null ? (Model.CargoPersonal.Equals("medico") ? "selected" : string.Empty) : string.Empty)>Medico</option>
-                    <option value="recepcionista" @(Model!=null ? (Model.CargoPersonal.Equals("recepcionista") ? "selected" : string.Empty) : string.Empty)>Recepcionista</option>
-                </select>
-            </p>
-        </div>
-        <div class="col-xl-3">
-            <p>
-                <label>Usuario</label>
-                <br />
-                <input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
-            </p>
-        </div>
-        <div class="col-xl-3">
-            <p>
-                <label>Contraseña</label>
-                <br />
-                <input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
-            </p>
-        </div>
-    </div>
-    <br />
-    <div class="text-center">
-        <button name="btn" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormulario()">Ingresar</button>
-    </div>
+	<div class="row">
+		<div class="col-xl-6">
+			<p>
+				<label>Nombre Completo</label>
+				<br />
+				<input name="NombrePersonal" class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.NombrePersonal : string.Empty)" />
+
+			</p>
+		</div>
+		<div class="col-xl-3">
+			<p>
+				<label>Cedula</label>
+				<br />
+				<input id="ced" name="CedulaPersonal" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.CedulaPersonal : string.Empty)" />
+				<label id="salida" name="ValidacionCedula" />
+			</p>
+		</div>
+		<div class="col-xl-3">
+			<p>
+				<label>Telefono</label>
+				<br />
+				<input name="TelefonoPersonal" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.TelefonoPersonal : string.Empty)" />
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xl-3">
+			<p>
+				<label>Cargo</label>
+				<br />
+				<select name="CargoPersonal" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+					<option value="administrador" @(Model != null ? (Model.CargoPersonal.Equals("recepcionista") ? "selected" : string.Empty) : string.Empty)>Administrador</option>
+					<option value="enfermera" @(Model != null ? (Model.CargoPersonal.Equals("enfermera") ? "selected" : string.Empty) : string.Empty)>Enfermera</option>
+					<option value="laboratorista" @(Model != null ? (Model.CargoPersonal.Equals("laboratorista") ? "selected" : string.Empty) : string.Empty)>Laboratorista</option>
+					<option value="medico" @(Model != null ? (Model.CargoPersonal.Equals("medico") ? "selected" : string.Empty) : string.Empty)>Medico</option>
+					<option value="recepcionista" @(Model != null ? (Model.CargoPersonal.Equals("recepcionista") ? "selected" : string.Empty) : string.Empty)>Recepcionista</option>
+				</select>
+			</p>
+		</div>
+		<div class="col-xl-3">
+			<p>
+				<label>Usuario</label>
+				<br />
+				<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+			</p>
+		</div>
+		<div class="col-xl-3">
+			<p>
+				<label>Contraseña</label>
+				<br />
+				<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+			</p>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-xl-6">
+			<p>
+				<label>Detalle</label>
+				<select name="CargoPersonal" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+					<option value="CITA A">Cita A</option>
+					<option value="CITA B">Cita B</option>
+					<option value="SUTURACION A">Suturación a</option>
+					<option value="EXTRACCION PUNTOS">Extracción Puntos</option>
+					<option value="INFILTRACION">Infiltración</option>
+				</select>
+			</p>
+		</div>
+		<div class="col-xl-3">
+			<p>
+				<label>Valor</label>
+				<br />
+				<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+			</p>
+		</div>
+		<div class="col-xl-3">
+			<p>
+				<label></label>
+				<br />
+				<button name="btningresarpago" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit">Ingresar</button>
+			</p>
+		</div>
+	</div>
+	<div>
+		<p>
+			<table class="table">
+				<tr>
+					<th scope="col">Detalle</th>
+					<th scope="col">Valor</th>
+
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</p>
+	</div>
+	<div class="text-center">
+		<button name="btn" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormulario()">Ingresar</button>
+	</div>
 </form>
