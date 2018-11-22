@@ -22,7 +22,7 @@ namespace TESIS002.Object
 
             using (StreamWriter file = new StreamWriter(rutaCompleta, true))
             {
-                string texto = $"{empleado.IdPersonal};{empleado.NombrePersonal};{empleado.CedulaPersonal};{empleado.TelefonoPersonal};{empleado.CargoPersonal}";
+                string texto = $"{empleado.IdPersonal};{empleado.NombrePersonal};{empleado.CedulaPersonal};{empleado.TelefonoPersonal};{empleado.CargoPersonal};{empleado.UsuarioPersonal};{empleado.ContrasenaPersonal}";
                 file.WriteLine(texto); 
                 file.Close();
             }
@@ -44,6 +44,8 @@ namespace TESIS002.Object
                     personal.CedulaPersonal = datos[2];
                     personal.TelefonoPersonal = datos[3];
                     personal.CargoPersonal = datos[4];
+                    personal.UsuarioPersonal = datos[5];
+                    personal.ContrasenaPersonal = datos[6];
 
                     this.ListaPersonal.Add(personal);
            
@@ -71,6 +73,20 @@ namespace TESIS002.Object
             return personalEncontrado;
         }
 
+        public PersonalModel searchPersonalCedula(string cedulaPersonal)
+        {
+            this.ListaPersonal = this.getListaPersonal();
+            PersonalModel personalEncontrado = new PersonalModel();
+            foreach (var personal in ListaPersonal)
+            {
+                if (personal.CedulaPersonal.Equals(cedulaPersonal))
+                {
+                    personalEncontrado = personal;
+                }
+            }
+            return personalEncontrado;
+        }
+
         public void modifyPersonal(PersonalModel empleado)
         {
             string rutacompleta = @"E:\Personal.txt";
@@ -82,7 +98,7 @@ namespace TESIS002.Object
             {
                 if (personal.IdPersonal.Equals(empleado.IdPersonal))
                 {
-                    renglones[cont] = $"{empleado.IdPersonal};{empleado.NombrePersonal};{empleado.CedulaPersonal};{empleado.TelefonoPersonal};{empleado.CargoPersonal}";
+                    renglones[cont] = $"{empleado.IdPersonal};{empleado.NombrePersonal};{empleado.CedulaPersonal};{empleado.TelefonoPersonal};{empleado.CargoPersonal};{empleado.UsuarioPersonal};{empleado.ContrasenaPersonal}";
                 }
                 cont++;
             }

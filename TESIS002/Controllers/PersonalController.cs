@@ -21,18 +21,18 @@ namespace TESIS002.Controllers
         [HttpPost]
         public ActionResult Ingresar(PersonalModel empleado)
         {
-            if (!string.IsNullOrEmpty(empleado.NombrePersonal) && !string.IsNullOrEmpty(empleado.CedulaPersonal) && !string.IsNullOrEmpty(empleado.TelefonoPersonal) && !string.IsNullOrEmpty(empleado.CargoPersonal) && validacion.ValidarCedula(empleado.CedulaPersonal))
-                {
-                    int numeroEmpleados = listas.numberOfPersonal() + 1;
-                    empleado.IdPersonal = numeroEmpleados.ToString();
-                    this.listas.addListaPersonal(empleado);
-                    return RedirectToAction("Listar", "Personal");
-                }
+            if (!string.IsNullOrEmpty(empleado.NombrePersonal) && !string.IsNullOrEmpty(empleado.CedulaPersonal) && !string.IsNullOrEmpty(empleado.TelefonoPersonal) && !string.IsNullOrEmpty(empleado.CargoPersonal) && !string.IsNullOrEmpty(empleado.UsuarioPersonal) && !string.IsNullOrEmpty(empleado.ContrasenaPersonal) && validacion.ValidarCedula(empleado.CedulaPersonal))
+            {
+                int numeroEmpleados = listas.numberOfPersonal() + 1;
+                empleado.IdPersonal = numeroEmpleados.ToString();
+                this.listas.addListaPersonal(empleado);
+                empleado = listas.searchPersonalCedula(empleado.CedulaPersonal);
+                return View(empleado);
+            }
             else
-                {
-                    empleado.CedulaValida = validacion.ValidarCedula(empleado.CedulaPersonal);
-                    return View(empleado);
-                }                           
+            {
+                return View(empleado);
+            }                           
         }
 
         public ActionResult Listar()
@@ -59,6 +59,11 @@ namespace TESIS002.Controllers
                 //return RedirectToAction("Modificar", "Personal", new { idPersonal = empleado.IdPersonal});
                 return RedirectToAction("Listar", "Personal");
             }
+        }
+
+        public ActionResult IngresarServicio(ServicioPersonalModel servicoPersonal)
+        {
+            return RedirectToAction("Listar", "Personal");
         }
     }
 }
