@@ -67,7 +67,8 @@
     </div>
 </form>
 <br />
-<form id="IngresarServicioPersonal" action="Ingresar" method="post">
+<form id="IngresarServicioPersonal" action="IngresarServicio" method="post">
+    <input name="IdPersonal" value="@(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? Model.IdPersonal : string.Empty) : string.Empty)" type="hidden" />
     <div class="row">
         <div class="col-xl-6">
             <p>
