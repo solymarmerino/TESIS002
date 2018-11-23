@@ -77,7 +77,7 @@ namespace TESIS002.Controllers
         public ActionResult IngresarServicio(ServicioPersonalModel servicoPersonal)
         {
             listas.addServicoPersonal(servicoPersonal);
-            return RedirectToAction("Ingresar", "Personal", new { idPersonal = servicoPersonal.IdPersonal});
+            return RedirectToAction("Ingresar", "Personal", new { IdPersonal = servicoPersonal.IdPersonal});
         }
     }
 }

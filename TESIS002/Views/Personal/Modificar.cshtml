@@ -105,12 +105,14 @@
                 <tr>
                     <th scope="col">Detalle</th>
                     <th scope="col">Valor</th>
-
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
+                @foreach (var servicioPersonal in Model.ServicioPersonal)
+                {
+                    <tr>
+                        <td scope="col">@servicioPersonal.NombreServicio</td>
+                        <td scope="col">@servicioPersonal.ValorServicio</td>
+                    </tr>
+                }
             </table>
         </p>
     </div>
