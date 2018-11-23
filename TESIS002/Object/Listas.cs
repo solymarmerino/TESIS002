@@ -10,6 +10,7 @@ namespace TESIS002.Object
     public class Listas
     {
         List<PersonalModel> ListaPersonal = new List<PersonalModel>();
+        List<ServicioPersonalModel> ListaServicioPersonal = new List<ServicioPersonalModel>();
 
         public Listas()
         {
@@ -109,6 +110,59 @@ namespace TESIS002.Object
         {
             this.ListaPersonal = this.getListaPersonal();
             return this.ListaPersonal.Count();
+        }
+
+        public void addServicoPersonal(ServicioPersonalModel servicioPersonal)
+        {
+            string rutaCompleta = @"E:\ServicioPersonal.txt";
+
+            using (StreamWriter file = new StreamWriter(rutaCompleta, true))
+            {
+                string texto = $"{servicioPersonal.IdPersonal};{servicioPersonal.NombreServicio};{servicioPersonal.ValorServicio}";
+                file.WriteLine(texto);
+                file.Close();
+            }
+        }
+
+        public List<ServicioPersonalModel> getListaServicoPersonal()
+        {
+            string rutacompleta = @"E:\ServicioPersonal.txt";
+            string[] renglones = File.ReadAllLines(rutacompleta);
+
+            try
+            {
+                foreach (var linea in renglones)
+                {
+                    ServicioPersonalModel servicoPersonal = new ServicioPersonalModel();
+                    string[] datos = linea.Split(';');
+                    servicoPersonal.IdPersonal = datos[0];
+                    servicoPersonal.NombreServicio = datos[1];
+                    servicoPersonal.ValorServicio = datos[2];
+
+                    this.ListaServicioPersonal.Add(servicoPersonal);
+
+                }
+                return this.ListaServicioPersonal;
+            }
+
+            catch (Exception e)
+            {
+                return this.ListaServicioPersonal;
+            }
+        }
+
+        public List<ServicioPersonalModel> getServicioPersonal(string idPersonal)
+        {
+            this.ListaServicioPersonal = this.getListaServicoPersonal();
+            List<ServicioPersonalModel>  listaPersonal= new List<ServicioPersonalModel>();
+            foreach (var servicioPersonal in ListaServicioPersonal)
+            {
+                if (servicioPersonal.IdPersonal.Equals(idPersonal))
+                {
+                    listaPersonal.Add(servicioPersonal);
+                }
+            }
+            return listaPersonal;
         }
     }
 }

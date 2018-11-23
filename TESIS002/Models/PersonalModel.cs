@@ -14,6 +14,7 @@ namespace TESIS002.Models
         public string CedulaPersonal { get; set; }
         public string UsuarioPersonal { get; set; }
         public string ContrasenaPersonal { get; set; }
+        public List<ServicioPersonalModel>  ServicioPersonal{ get; set; }
 
     }
 }

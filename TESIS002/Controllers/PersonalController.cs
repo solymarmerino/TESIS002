@@ -13,8 +13,18 @@ namespace TESIS002.Controllers
         Listas listas = new Listas();
         Validacion validacion = new Validacion();
         // GET: Personal
-        public ActionResult Ingresar()
+        public ActionResult Ingresar1()
         {
+            return View();
+        }
+        public ActionResult Ingresar(string idPersonal)
+        {
+            if (string.IsNullOrEmpty(idPersonal))
+            {
+                PersonalModel empleado = listas.searchPersonal(idPersonal);
+                empleado.ServicioPersonal = listas.getServicioPersonal(idPersonal);
+                return View(empleado);
+            }
             return View();
         }
 
@@ -27,6 +37,7 @@ namespace TESIS002.Controllers
                 empleado.IdPersonal = numeroEmpleados.ToString();
                 this.listas.addListaPersonal(empleado);
                 empleado = listas.searchPersonalCedula(empleado.CedulaPersonal);
+                empleado.ServicioPersonal = listas.getServicioPersonal(empleado.IdPersonal);
                 return View(empleado);
             }
             else
@@ -43,7 +54,9 @@ namespace TESIS002.Controllers
         [HttpPost]
         public ActionResult Modificar(string idPersonal)
         {
-            return View(this.listas.searchPersonal(idPersonal));
+            PersonalModel empleado = listas.searchPersonal(idPersonal);
+            empleado.ServicioPersonal = listas.getServicioPersonal(idPersonal);
+            return View(empleado);
         }
 
         [HttpPost]
@@ -63,7 +76,8 @@ namespace TESIS002.Controllers
 
         public ActionResult IngresarServicio(ServicioPersonalModel servicoPersonal)
         {
-            return RedirectToAction("Listar", "Personal");
+            listas.addServicoPersonal(servicoPersonal);
+            return RedirectToAction("Ingresar", "Personal", new { idPersonal = servicoPersonal.IdPersonal});
         }
     }
 }
