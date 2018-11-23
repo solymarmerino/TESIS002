@@ -58,7 +58,7 @@
             <p>
                 <label>Contraseña</label>
                 <br />
-                <input name="ContrasenaPersonal" class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.ContrasenaPersonal : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? "disabled" : string.Empty) : string.Empty)/>
+                <input type="password" name="ContrasenaPersonal" class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.ContrasenaPersonal : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? "disabled" : string.Empty) : string.Empty)/>
             </p>
         </div>
     </div>
