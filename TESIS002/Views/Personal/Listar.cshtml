@@ -4,31 +4,35 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 <h2 class="text-center">Lista Personal</h2>
 <br />
 <div>
-    <table class="table">
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Cargo</th>
-            <th scope="col"></th>
-        </tr>
-        @foreach (var personal in Model)
-        {
-            <tr>
+	<table class="table">
+		<tr>
+			<th scope="col">Nombre</th>
+			<th scope="col">Telefono</th>
+			<th scope="col">Cargo</th>
+			<th scope="col"></th>
+		</tr>
+		@foreach (var personal in Model)
+		{
+			<tr>
 
-                <td scope="col">@personal.NombrePersonal</td>
-                <td scope="col">@personal.TelefonoPersonal</td>
-                <td scope="col">@personal.CargoPersonal</td>
-                <td scope="col">
-                    <form action="Modificar" method="post">
-						<button name="IdPersonal" value="@personal.IdPersonal" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">&#9998;</button>
+				<td scope="col">@personal.NombrePersonal</td>
+				<td scope="col">@personal.TelefonoPersonal</td>
+				<td scope="col">@personal.CargoPersonal</td>
+				<td scope="col">
+					<form action="Modificar" method="post">
+						<button name="IdPersonal" value="@personal.IdPersonal" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+							<i class="fas fa-edit"></i>
+						</button>
 					</form>
-                </td>
-            </tr>
-        }
-    </table>
+				</td>
+			</tr>
+		}
+	</table>
 </div>
 <br />
 <div class="text-center">
