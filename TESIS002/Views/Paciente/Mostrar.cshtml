@@ -4,7 +4,7 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="text-align:center">Mostrar</h2>
+<h2 style="text-align:center">Información Paciente</h2>
 
 <div class="text-right">
 	<p>
@@ -15,28 +15,28 @@
 </div>
 
 <div class="row">
-	<div class="col-md-3">
+	<div class="col-xl-3">
 		<p>
 			<label>Primer Nombre</label>
-			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+			<input class="col-xl" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
 		</p>
 	</div>
-	<div class="col-md-3">
+	<div class="col-xl-3">
 		<p>
 			<label>Segundo Nombre</label>
-			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+			<input class="col-xl" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
 		</p>
 	</div>
-	<div class="col-md-3">
+	<div class="col-xl-3">
 		<p>
 			<label>Primer Apellido</label>
-			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+			<input class="col-xl" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
 		</p>
 	</div>
-	<div class="col-md-3">
+	<div class="col-xl-3">
 		<p>
 			<label>Segundo Apellido</label>
-			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+			<input class="col-xl" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
 		</p>
 	</div>
 </div>
@@ -46,33 +46,34 @@
 		<p>
 			<label>Cedula</label>
 			<br />
-			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+			<input style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
 		</p>
 	</div>
-	<div class="col-xl-3">
+	<div class="col-xl-6">
 		<p>
 			<label>Direccion</label>
 			<br />
-			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" rows="1">
+			<input class="col-xl" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;">
 		</p>
 	</div>
 	<div class="col-xl-3">
 		<p>
 			<label>Telefono</label>
 			<br />
-			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+			<input style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
 		</p>
 	</div>
+
+</div>
+<div class="row">
 	<div class="col-xl-3">
 		<p>
 			<label>Fecha de Nacimiento</label>
 			<br />
-			<input type="date" style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+			<input type="date" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
 		</p>
 	</div>
-</div>
-<div class="row">
-	<div class="col-md-3">
+	<div class="col-xl-3" >
 		<p>
 			<label>Genero</label>
 			<br>
@@ -84,7 +85,7 @@
 		<p>
 			<label>Estado Civil</label>
 			<br />
-			<select style="text-align:left; border-radius:0.3rem; width:200px; height:40px;">
+			<select style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
 				<option value="soltero">SOLTERO</option>
 				<option value="casado">CASADO</option>
 				<option value="viudo">VIUDO</option>
@@ -97,7 +98,7 @@
 		<p>
 			<label>Tipo de Sangre</label>
 			<br />
-			<select style="text-align:left; border-radius:0.3rem; width:200px; height:40px;">
+			<select style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
 				<option value="a+">A+</option>
 				<option value="a-">A-</option>
 				<option value="b+">B+</option>
@@ -111,29 +112,31 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-3">
+	<div class="col-xl-3">
 		<p>
 			<label>Contacto de Emergemcia</label>
-			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+			<input style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
 		</p>
 	</div>
-	<div class="col-md-3">
+	<div class="col-xl-3">
 		<p>
 			<label>Afinidad</label>
-			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+			<input style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
 		</p>
 	</div>
-	<div class="col-md-3">
+	<div class="col-xl-3">
 		<p>
 			<label>Telefono</label>
-			<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+			<input style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
 		</p>
 	</div>
-	<div>
+</div>
+<div class="row">
+	<div class="col-xl-12">
 		<p>
 			<label>Alergias</label>
 			<br />
-			<input type="text" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+			<textarea type="text" class="col-xl" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:80px;"></textarea>
 		</p>
 	</div>
 </div>

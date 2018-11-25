@@ -10,18 +10,18 @@ namespace TESIS002.Controllers
 	public class PacienteController : Controller
 	{
         // GET: Paciente
-		[HttpGet]
-        public ActionResult Listar(string nombrePaciente)
+		
+        public ActionResult Listar()
         {
 			var ListaPaciente = new List<Paciente>
 			{
-				/*new Paciente(){ IdPaciente =1, NombrePaciente="JUAN", CedulaPaciente =1111111111, HistoriaClinicaPaciente =99999999, },
+				new Paciente(){ IdPaciente =1, NombrePaciente="JUAN", CedulaPaciente =1111111111, HistoriaClinicaPaciente =99999999, },
 				new Paciente(){ IdPaciente =1, NombrePaciente="PEPE", CedulaPaciente =1111111112, HistoriaClinicaPaciente =99999990, },
 				new Paciente(){ IdPaciente =1, NombrePaciente="ROSA", CedulaPaciente =1111111113, HistoriaClinicaPaciente =99999991, },
-				new Paciente(){ IdPaciente =1, NombrePaciente="LUCIA",CedulaPaciente =1111111114, HistoriaClinicaPaciente =99999992,}*/
+				new Paciente(){ IdPaciente =1, NombrePaciente="LUCIA",CedulaPaciente =1111111114, HistoriaClinicaPaciente =99999992,}
 			};
 
-            var resultado = "";//ListaPaciente.Where(X => X.NombrePaciente == nombrePaciente).FirstOrDefault();
+            var resultado = ListaPaciente;
 			return View(resultado);
 		}
         public ActionResult Ingresar()
