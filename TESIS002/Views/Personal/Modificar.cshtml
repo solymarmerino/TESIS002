@@ -82,6 +82,7 @@
                 </select>
             </p>
         </div>
+
         <div class="col-xl-3">
             <p>
                 <label>Valor</label>
@@ -96,6 +97,7 @@
                 <button name="btningresarpago" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit">Ingresar Servicio</button>
             </p>
         </div>
+
     </div>
     <div>
         <p>
@@ -103,12 +105,14 @@
                 <tr>
                     <th scope="col">Detalle</th>
                     <th scope="col">Valor</th>
-
                 </tr>
-                <tr>
-                    <td>PRUEBA</td>
-                    <td>PRUEBA</td>
-                </tr>
+                @foreach (var servicioPersonal in Model.ServicioPersonal)
+                {
+                    <tr>
+                        <td scope="col">@servicioPersonal.NombreServicio</td>
+                        <td scope="col">@servicioPersonal.ValorServicio</td>
+                    </tr>
+                }
             </table>
         </p>
     </div>

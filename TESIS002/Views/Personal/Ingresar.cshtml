@@ -39,11 +39,11 @@
                 <label>Cargo</label>
                 <br />
                 <select name="CargoPersonal" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? "disabled" : string.Empty) : string.Empty)>
-                    <option value="administrador" @(Model != null ? (Model.CargoPersonal.Equals("recepcionista") ? "selected" : string.Empty) : string.Empty)>Administrador</option>
-                    <option value="enfermera" @(Model != null ? (Model.CargoPersonal.Equals("enfermera") ? "selected" : string.Empty) : string.Empty)>Enfermera</option>
-                    <option value="laboratorista" @(Model != null ? (Model.CargoPersonal.Equals("laboratorista") ? "selected" : string.Empty) : string.Empty)>Laboratorista</option>
-                    <option value="medico" @(Model != null ? (Model.CargoPersonal.Equals("medico") ? "selected" : string.Empty) : string.Empty)>Medico</option>
-                    <option value="recepcionista" @(Model != null ? (Model.CargoPersonal.Equals("recepcionista") ? "selected" : string.Empty) : string.Empty)>Recepcionista</option>
+                    <option value="administrador"  @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? (Model.CargoPersonal.Equals("recepcionista") ? "selected" : string.Empty) : string.Empty) : string.Empty)>Administrador</option>
+                    <option value="enfermera" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? (Model.CargoPersonal.Equals("enfermera") ? "selected" : string.Empty) : string.Empty) : string.Empty)>Enfermera</option>
+                    <option value="laboratorista" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? (Model.CargoPersonal.Equals("laboratorista") ? "selected" : string.Empty) : string.Empty) : string.Empty)>Laboratorista</option>
+                    <option value="medico" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? (Model.CargoPersonal.Equals("medico") ? "selected" : string.Empty) : string.Empty) : string.Empty))>Medico</option>
+                    <option value="recepcionista" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? (Model.CargoPersonal.Equals("recepcionista") ? "selected" : string.Empty) : string.Empty) : string.Empty)>Recepcionista</option>
                 </select>
             </p>
         </div>
@@ -68,17 +68,17 @@
     </div>
 </form>
 <br />
-<form id="IngresarServicioPersonal" action="IngresarServicio" method="post">
+<form id="IngresarServicioPersonal" action="IngresarServicio" method="get">
     <input name="IdPersonal" value="@(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? Model.IdPersonal : string.Empty) : string.Empty)" type="hidden" />
     <div class="row">
         <div class="col-xl-6">
             <p>
                 <label>Detalle</label>
                 <select name="NombreServicio" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
-                    <option value="CITA A">Cita A</option>
-                    <option value="CITA B">Cita B</option>
-                    <option value="SUTURACION A">Suturación a</option>
-                    <option value="EXTRACCION PUNTOS">Extracción Puntos</option>
+                    <option value="CITAA">Cita A</option>
+                    <option value="CITAB">Cita B</option>
+                    <option value="SUTURACIONA">Suturación a</option>
+                    <option value="EXTRACCIONPUNTOS">Extracción Puntos</option>
                     <option value="INFILTRACION">Infiltración</option>
                 </select>
             </p>
@@ -106,10 +106,13 @@
                     <th scope="col">Valor</th>
 
                 </tr>
+                @foreach (var servicioPersonal in Model.ServicioPersonal)
+                {
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td scope="col">@servicioPersonal.NombreServicio</td>
+                    <td scope="col">@servicioPersonal.ValorServicio</td>
                 </tr>
+                }
             </table>
         </p>
     </div>
