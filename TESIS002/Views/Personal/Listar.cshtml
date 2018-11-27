@@ -10,12 +10,13 @@
 <br />
 <div>
 	<table class="table">
-		<tr>
-			<th scope="col">Nombre</th>
-			<th scope="col">Telefono</th>
-			<th scope="col">Cargo</th>
-			<th scope="col"></th>
-		</tr>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Cargo</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
 		@foreach (var personal in Model)
 		{
 			<tr>
@@ -23,6 +24,12 @@
 				<td scope="col">@personal.NombrePersonal</td>
 				<td scope="col">@personal.TelefonoPersonal</td>
 				<td scope="col">@personal.CargoPersonal</td>
+                <td scope="col">
+                <form action="Servicio" method="post">
+                    <input name="IdPersonal" value="@personal.IdPersonal" type="hidden" />
+                    <button name="Btn" value="listarServicio" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">&#9998;</button>
+                </form>
+                </td>
 				<td scope="col">
 					<form action="Modificar" method="post">
 						<button name="IdPersonal" value="@personal.IdPersonal" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">

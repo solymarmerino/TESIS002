@@ -63,11 +63,9 @@
         </div>
     </div>
     <br />
-    <div class="text-center">
-        <button name="btn" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormulario()" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? "disabled" : string.Empty) : string.Empty)>Ingresar Personal</button>
-    </div>
 </form>
 <br />
+<h5 class="text-center">Servicios del Personal</h5>
 <form id="IngresarServicioPersonal" action="Servicio" method="post">
     <input name="IdPersonal" value="@(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? Model.IdPersonal : string.Empty) : string.Empty)" type="hidden" />
     <div class="row">
@@ -75,10 +73,10 @@
             <p>
                 <label>Detalle</label>
                 <select name="NombreServicio" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
-                    <option value="CITAA">Cita A</option>
-                    <option value="CITAB">Cita B</option>
-                    <option value="SUTURACIONA">Suturación a</option>
-                    <option value="EXTRACCIONPUNTOS">Extracción Puntos</option>
+                    <option value="CITA A">Cita A</option>
+                    <option value="CITA B">Cita B</option>
+                    <option value="SUTURACION A">Suturación a</option>
+                    <option value="EXTRACCION PUNTOS">Extracción Puntos</option>
                     <option value="INFILTRACION">Infiltración</option>
                 </select>
             </p>
@@ -94,20 +92,30 @@
             <p>
                 <label></label>
                 <br />
-                <button name="Btn" value="ingresar" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? string.Empty : "disabled" ) : "disabled")>Ingresar Servicio</button>
+                <button name="Btn" value="ingresar" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? string.Empty : "disabled") : "disabled")>Ingresar Servicio</button>
             </p>
         </div>
     </div>
-    <div>
-        <p>
-            <table class="table">
-                <tr>
-                    <th scope="col">Detalle</th>
-                    <th scope="col">Valor</th>
-
-                </tr>
-               
-            </table>
-        </p>
-    </div>
 </form>
+    <div>
+        <table class="table">
+            <tr>
+                <th scope="col">Detalle</th>
+                <th scope="col">Valor</th>
+                <th scope="col"></th>
+            </tr>
+            @foreach (var servicioPersonal in Model.ServicioPersonal)
+            {
+            <tr>
+                <td scope="col">@servicioPersonal.NombreServicio</td>
+                <td scope="col">@servicioPersonal.ValorServicio</td>
+                <td>
+                    <form action="Servicio" method="post">
+                        <button name="Btn" value="@servicioPersonal.IdPersonalServicio" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">&#9998;</button>
+                    </form>
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+

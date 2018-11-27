@@ -12,8 +12,6 @@ namespace TESIS002.Object
         List<PersonalModel> ListaPersonal = new List<PersonalModel>();
         List<ServicioPersonalModel> ListaServicioPersonal = new List<ServicioPersonalModel>();
 
-		List<PacienteModel> ListaPaciente = new List<PacienteModel>();
-
         public Listas()
         {
            
@@ -90,6 +88,20 @@ namespace TESIS002.Object
             return personalEncontrado;
         }
 
+        public PersonalModel searchPersonalUsuario(string usuarioPersonal)
+        {
+            this.ListaPersonal = this.getListaPersonal();
+            PersonalModel personalEncontrado = new PersonalModel();
+            foreach (var personal in ListaPersonal)
+            {
+                if (personal.UsuarioPersonal.Equals(usuarioPersonal))
+                {
+                    personalEncontrado = personal;
+                }
+            }
+            return personalEncontrado;
+        }
+
         public void modifyPersonal(PersonalModel empleado)
         {
             string rutacompleta = @"E:\Personal.txt";
@@ -111,16 +123,19 @@ namespace TESIS002.Object
         public int numberOfPersonal()
         {
             this.ListaPersonal = this.getListaPersonal();
-            return this.ListaPersonal.Count();
+            int numero = this.ListaPersonal.Count() - 1;
+            int siguienteId = Int32.Parse(this.ListaPersonal[numero].IdPersonal);
+            return siguienteId;
         }
 
         public void addServicoPersonal(ServicioPersonalModel servicioPersonal)
         {
             string rutaCompleta = @"E:\ServicioPersonal.txt";
-
+            int siguienteId = this.numberOfServicioPersonal();
+            servicioPersonal.IdPersonalServicio = siguienteId.ToString();
             using (StreamWriter file = new StreamWriter(rutaCompleta, true))
             {
-                string texto = $"{servicioPersonal.IdPersonal};{servicioPersonal.NombreServicio};{servicioPersonal.ValorServicio}";
+                string texto = $"{servicioPersonal.IdPersonalServicio};{servicioPersonal.IdPersonal};{servicioPersonal.NombreServicio};{servicioPersonal.ValorServicio}";
                 file.WriteLine(texto);
                 file.Close();
             }
@@ -137,9 +152,10 @@ namespace TESIS002.Object
                 {
                     ServicioPersonalModel servicoPersonal = new ServicioPersonalModel();
                     string[] datos = linea.Split(';');
-                    servicoPersonal.IdPersonal = datos[0];
-                    servicoPersonal.NombreServicio = datos[1];
-                    servicoPersonal.ValorServicio = datos[2];
+                    servicoPersonal.IdPersonalServicio = datos[0];
+                    servicoPersonal.IdPersonal = datos[1];
+                    servicoPersonal.NombreServicio = datos[2];
+                    servicoPersonal.ValorServicio = datos[3];
 
                     this.ListaServicioPersonal.Add(servicoPersonal);
 
@@ -167,87 +183,44 @@ namespace TESIS002.Object
             return listaPersonal;
         }
 
-		public void addListaPaciente(PacienteModel paciente)
-		{
-			string rutaCompleta = @"E:\Paciente.txt";
+        public ServicioPersonalModel getAServicioPersonal(string idServicePersonal)
+        {
+            this.ListaServicioPersonal = this.getListaServicoPersonal();
+            ServicioPersonalModel aServicePersonal = new ServicioPersonalModel();
+            foreach (var servicioPersonal in ListaServicioPersonal)
+            {
+                if (servicioPersonal.IdPersonalServicio.Equals(idServicePersonal))
+                {
+                    aServicePersonal = servicioPersonal;
+                }
+            }
+            return aServicePersonal;
+        }
 
-			using (StreamWriter file = new StreamWriter(rutaCompleta, true))
-			{
-				string texto = $"{paciente.IdPaciente};" +
-							   $"{paciente.HistoriaClinicaPaciente};" +
-							   $"{paciente.NombrePaciente};" +
-				               $"{paciente.CedulaPaciente};" +
-				               $"{paciente.DirecciónPaciente};" +
-				               $"{paciente.TelefonoPaciente};" +
-				               $"{paciente.FechaNacimientoPaciente};" +
-							   $"{paciente.GeneroPaciente};" +
-							   $"{paciente.EstadoCivilPaciente};" +
-							   $"{paciente.TipoSangrePaciente};" +
-							   $"{paciente.NombreContactoEmergenciaPaciente};" +
-							   $"{paciente.AfinidadContactoEmergenciaPaciente};" +
-							   $"{paciente.TelefonoContatoEmergenciaPaciente};" +
-							   $"{paciente.AntecedentesPaciente}";
-				file.WriteLine(texto);
-				file.Close();
-			}
-		}
+        public void deleteServicioPersonal(string idServicioPersonal)
+        {
+            ServicioPersonalModel aServicePersonal = this.getAServicioPersonal(idServicioPersonal);
+            this.ListaServicioPersonal = this.getListaServicoPersonal();
 
-		public List<PacienteModel> getListaPaciente()
-		{
-			string rutacompleta = @"E:\Paciente.txt";
-			string[] renglones = File.ReadAllLines(rutacompleta);
+            this.ListaServicioPersonal.Remove(aServicePersonal);
 
-			try
-			{
-				foreach (var linea in renglones)
-				{
-					PacienteModel paciente = new PacienteModel();
-					string[] datos = linea.Split(';');
-					paciente.IdPaciente = datos[0];
-					paciente.HistoriaClinicaPaciente = datos[1];
-					paciente.NombrePaciente = datos[2];
-					paciente.CedulaPaciente = datos[3];
-					paciente.DirecciónPaciente = datos[4];
-					paciente.TelefonoPaciente = datos[5];
-					paciente.FechaNacimientoPaciente = datos[6];
-					paciente.GeneroPaciente = datos[7];
-					paciente.EstadoCivilPaciente = datos[8];
-					paciente.TipoSangrePaciente = datos[9];
-					paciente.NombreContactoEmergenciaPaciente = datos[10];
-					paciente.AfinidadContactoEmergenciaPaciente = datos[11];
-					paciente.TelefonoContatoEmergenciaPaciente = datos[12];
-					paciente.AntecedentesPaciente = datos[13];
+            string rutaCompleta = @"E:\ServicioPersonal.txt";
 
-					this.ListaPaciente.Add(paciente);
-
-				}
-				return this.ListaPaciente;
-			}
-
-			catch (Exception e)
-			{
-				return this.ListaPaciente;
-			}
-		}
-
-		public PacienteModel searchPacienteCedula(string cedulaPaciente)
-		{
-			this.ListaPaciente = this.getListaPaciente();
-			PacienteModel pacienteEncontrado = new PacienteModel();
-			foreach (var paciente in ListaPaciente)
-			{
-				if (paciente.CedulaPaciente.Equals(cedulaPaciente))
-				{
-					pacienteEncontrado = paciente;
-				}
-			}
-			return pacienteEncontrado;
-		}
-
-		public int numberOfPaciente()
-		{
-			this.ListaPaciente = this.getListaPaciente();
-			return this.ListaPaciente.Count();
-		}
-	}
+            StreamWriter file = new StreamWriter(rutaCompleta, true);
+            file.Flush();
+            foreach (var servicioPersonal in ListaServicioPersonal)
+            {
+                string texto = $"{servicioPersonal.IdPersonalServicio};{servicioPersonal.IdPersonal};{servicioPersonal.NombreServicio};{servicioPersonal.ValorServicio}";
+                file.WriteLine(texto);
+            }
+            file.Close();        
+        }
+        public int numberOfServicioPersonal()
+        {
+            this.ListaServicioPersonal = this.getListaServicoPersonal();
+            int numero = this.ListaServicioPersonal.Count()-1;
+            int siguienteId = Int32.Parse(this.ListaServicioPersonal[numero].IdPersonalServicio)+1;
+            return siguienteId;
+        }
+    }
 }
