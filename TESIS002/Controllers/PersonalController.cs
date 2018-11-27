@@ -13,11 +13,11 @@ namespace TESIS002.Controllers
         Listas listas = new Listas();
         Validacion validacion = new Validacion();
         // GET: Personal
-        public ActionResult Ingresar1()
+        public ActionResult Ingresar()
         {
             return View();
         }
-        public ActionResult Ingresar(string idPersonal)
+        /*public ActionResult Ingresar(string idPersonal)
         {
             if (string.IsNullOrEmpty(idPersonal))
             {
@@ -26,7 +26,7 @@ namespace TESIS002.Controllers
                 return View(empleado);
             }
             return View();
-        }
+        }*/
 
         [HttpPost]
         public ActionResult Ingresar(PersonalModel empleado)
@@ -74,10 +74,27 @@ namespace TESIS002.Controllers
             }
         }
 
-        public ActionResult IngresarServicio(ServicioPersonalModel servicoPersonal)
+        [HttpPost]
+        public ActionResult Servicio(ServicioPersonalModel servicoPersonal)
         {
-            listas.addServicoPersonal(servicoPersonal);
-            return RedirectToAction("Ingresar", "Personal", new { IdPersonal = servicoPersonal.IdPersonal});
+
+            if (servicoPersonal.Btn.Equals("ingresar"))
+            {
+                listas.addServicoPersonal(servicoPersonal);
+            }
+            if (servicoPersonal.Btn.Equals("listarServicio"))
+            {
+                
+            }
+            if (!servicoPersonal.Btn.Equals("ingresar") && !servicoPersonal.Btn.Equals("listarServicio"))
+            {
+                listas.deleteServicioPersonal(servicoPersonal.Btn);
+            }
+
+            PersonalModel empleado = listas.searchPersonal(servicoPersonal.IdPersonal);
+            empleado.ServicioPersonal = listas.getServicioPersonal(servicoPersonal.IdPersonal);
+            return View(empleado);
+            //return RedirectToAction("Ingresar", "Personal", new { IdPersonal = servicoPersonal.IdPersonal });
         }
     }
 }

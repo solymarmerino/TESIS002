@@ -19,11 +19,11 @@ namespace TESIS002
                 defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
             );*/
 
-            routes.MapRoute(
+            /*routes.MapRoute(
                name: "IngresarServicioPersonal",
-               url: "Personal/Ingresar/{id}",
+               url: "Personal/Ingresar/{IdPersonal}",
                defaults: new { controller = "Personal", action = "Ingresar", id = UrlParameter.Optional }
-            );
+            );*/
 
             routes.MapRoute(
                name: "Default",

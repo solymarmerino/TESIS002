@@ -88,6 +88,20 @@ namespace TESIS002.Object
             return personalEncontrado;
         }
 
+        public PersonalModel searchPersonalUsuario(string usuarioPersonal)
+        {
+            this.ListaPersonal = this.getListaPersonal();
+            PersonalModel personalEncontrado = new PersonalModel();
+            foreach (var personal in ListaPersonal)
+            {
+                if (personal.UsuarioPersonal.Equals(usuarioPersonal))
+                {
+                    personalEncontrado = personal;
+                }
+            }
+            return personalEncontrado;
+        }
+
         public void modifyPersonal(PersonalModel empleado)
         {
             string rutacompleta = @"E:\Personal.txt";
@@ -109,16 +123,19 @@ namespace TESIS002.Object
         public int numberOfPersonal()
         {
             this.ListaPersonal = this.getListaPersonal();
-            return this.ListaPersonal.Count();
+            int numero = this.ListaPersonal.Count() - 1;
+            int siguienteId = Int32.Parse(this.ListaPersonal[numero].IdPersonal);
+            return siguienteId;
         }
 
         public void addServicoPersonal(ServicioPersonalModel servicioPersonal)
         {
             string rutaCompleta = @"E:\ServicioPersonal.txt";
-
+            int siguienteId = this.numberOfServicioPersonal();
+            servicioPersonal.IdPersonalServicio = siguienteId.ToString();
             using (StreamWriter file = new StreamWriter(rutaCompleta, true))
             {
-                string texto = $"{servicioPersonal.IdPersonal};{servicioPersonal.NombreServicio};{servicioPersonal.ValorServicio}";
+                string texto = $"{servicioPersonal.IdPersonalServicio};{servicioPersonal.IdPersonal};{servicioPersonal.NombreServicio};{servicioPersonal.ValorServicio}";
                 file.WriteLine(texto);
                 file.Close();
             }
@@ -135,9 +152,10 @@ namespace TESIS002.Object
                 {
                     ServicioPersonalModel servicoPersonal = new ServicioPersonalModel();
                     string[] datos = linea.Split(';');
-                    servicoPersonal.IdPersonal = datos[0];
-                    servicoPersonal.NombreServicio = datos[1];
-                    servicoPersonal.ValorServicio = datos[2];
+                    servicoPersonal.IdPersonalServicio = datos[0];
+                    servicoPersonal.IdPersonal = datos[1];
+                    servicoPersonal.NombreServicio = datos[2];
+                    servicoPersonal.ValorServicio = datos[3];
 
                     this.ListaServicioPersonal.Add(servicoPersonal);
 
@@ -163,6 +181,49 @@ namespace TESIS002.Object
                 }
             }
             return listaPersonal;
+        }
+
+        public ServicioPersonalModel getAServicioPersonal(string idServicePersonal)
+        {
+            this.ListaServicioPersonal = this.getListaServicoPersonal();
+            ServicioPersonalModel aServicePersonal = new ServicioPersonalModel();
+            foreach (var servicioPersonal in ListaServicioPersonal)
+            {
+                if (servicioPersonal.IdPersonalServicio.Equals(idServicePersonal))
+                {
+                    aServicePersonal = servicioPersonal;
+                }
+            }
+            return aServicePersonal;
+        }
+
+        public void deleteServicioPersonal(string idServicioPersonal)
+        {
+            ServicioPersonalModel aServicePersonal = this.getAServicioPersonal(idServicioPersonal);
+            this.ListaServicioPersonal = this.getListaServicoPersonal();
+
+            this.ListaServicioPersonal.Remove(aServicePersonal);
+
+            string rutaCompleta = @"E:\ServicioPersonal.txt";
+
+            StreamWriter file = new StreamWriter(rutaCompleta, true);
+            file.Flush();
+            file.Close();
+
+            file = new StreamWriter(rutaCompleta, true);
+            foreach (var servicioPersonal in ListaServicioPersonal)
+            {
+                string texto = $"{servicioPersonal.IdPersonalServicio};{servicioPersonal.IdPersonal};{servicioPersonal.NombreServicio};{servicioPersonal.ValorServicio}";
+                file.WriteLine(texto);
+            }
+            file.Close();        
+        }
+        public int numberOfServicioPersonal()
+        {
+            this.ListaServicioPersonal = this.getListaServicoPersonal();
+            int numero = this.ListaServicioPersonal.Count()-1;
+            int siguienteId = Int32.Parse(this.ListaServicioPersonal[numero].IdPersonalServicio)+1;
+            return siguienteId;
         }
     }
 }
