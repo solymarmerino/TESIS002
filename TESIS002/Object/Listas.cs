@@ -208,9 +208,6 @@ namespace TESIS002.Object
 
             StreamWriter file = new StreamWriter(rutaCompleta, true);
             file.Flush();
-            file.Close();
-
-            file = new StreamWriter(rutaCompleta, true);
             foreach (var servicioPersonal in ListaServicioPersonal)
             {
                 string texto = $"{servicioPersonal.IdPersonalServicio};{servicioPersonal.IdPersonal};{servicioPersonal.NombreServicio};{servicioPersonal.ValorServicio}";
