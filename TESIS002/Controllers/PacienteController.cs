@@ -4,32 +4,52 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TESIS002.Models;
+using TESIS002.Object;
 
 namespace TESIS002.Controllers
 {
 	public class PacienteController : Controller
 	{
-        // GET: Paciente
-		
-        public ActionResult Listar()
-        {
-			var ListaPaciente = new List<Paciente>
-			{
-				new Paciente(){ IdPaciente =1, NombrePaciente="JUAN", CedulaPaciente =1111111111, HistoriaClinicaPaciente =99999999, },
-				new Paciente(){ IdPaciente =1, NombrePaciente="PEPE", CedulaPaciente =1111111112, HistoriaClinicaPaciente =99999990, },
-				new Paciente(){ IdPaciente =1, NombrePaciente="ROSA", CedulaPaciente =1111111113, HistoriaClinicaPaciente =99999991, },
-				new Paciente(){ IdPaciente =1, NombrePaciente="LUCIA",CedulaPaciente =1111111114, HistoriaClinicaPaciente =99999992,}
-			};
+		Listas listas = new Listas();
+		// GET: Paciente
 
-            var resultado = ListaPaciente;
-			return View(resultado);
+		public ActionResult Listar()
+        {
+			return View();
 		}
         public ActionResult Ingresar()
         {
             return View();
         }
+		[HttpPost]
+		public ActionResult Ingresar(PacienteModel paciente)
+		{
+			if (!string.IsNullOrEmpty(paciente.NombrePaciente) && 
+				!string.IsNullOrEmpty(paciente.CedulaPaciente) && 
+				!string.IsNullOrEmpty(paciente.DirecciónPaciente) && 
+				!string.IsNullOrEmpty(paciente.TelefonoPaciente) && 
+				!string.IsNullOrEmpty(paciente.FechaNacimientoPaciente) && 
+				!string.IsNullOrEmpty(paciente.GeneroPaciente) &&
+				!string.IsNullOrEmpty(paciente.EstadoCivilPaciente) &&
+				!string.IsNullOrEmpty(paciente.TipoSangrePaciente) &&
+				!string.IsNullOrEmpty(paciente.NombreContactoEmergenciaPaciente) &&
+				!string.IsNullOrEmpty(paciente.AfinidadContactoEmergenciaPaciente) &&
+				!string.IsNullOrEmpty(paciente.TipoSangrePaciente) &&
+				!string.IsNullOrEmpty(paciente.AntecedentesPaciente))
+			{
+				int numeroPacientes = listas.numberOfPaciente() + 1;
+				paciente.IdPaciente = numeroPacientes.ToString();
+				this.listas.addListaPaciente(paciente);
+				paciente = listas.searchPacienteCedula(paciente.CedulaPaciente);
+				return View(paciente);
+			}
+			else
+			{
+				return View(paciente);
+			}
+		}
 
-        public ActionResult Mostrar()
+		public ActionResult Mostrar()
         {
             return View();
         }
