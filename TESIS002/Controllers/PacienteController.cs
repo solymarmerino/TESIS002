@@ -21,6 +21,7 @@ namespace TESIS002.Controllers
         {
             return View();
         }
+		/*lalalallal*/
 		[HttpPost]
 		public ActionResult Ingresar(PacienteModel paciente)
 		{
