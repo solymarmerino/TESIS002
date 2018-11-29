@@ -10,7 +10,7 @@ namespace TESIS002.Controllers
 {
 	public class PacienteController : Controller
 	{
-		Listas listas = new Listas();
+		ListasPaciente listas = new ListasPaciente();
 		// GET: Paciente
 
 		public ActionResult Listar()
