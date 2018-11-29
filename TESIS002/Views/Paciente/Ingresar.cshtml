@@ -54,15 +54,17 @@
 			<p>
 				<label>Fecha de Nacimiento</label>
 				<br />
-				<input name="FechaNacimientoPaciente" type="date" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.FechaNacimientoPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)/>
+				<input name="FechaNacimientoPaciente" type="d" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.FechaNacimientoPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)/>
 			</p>
 		</div>
 		<div class="col-xl-3">
 			<p>
 				<label>Genero</label>
 				<br>
-				<input type="radio" name="genero" value="femenino" /> Femenino
-				<input type="radio" name="genero" value="masculino" /> Masculino <br>
+				<select name="EstadoCivilPaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>
+					<option  value="femenino" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.GeneroPaciente.Equals("femenino") ? "selected" : string.Empty) : string.Empty) : string.Empty)> Femenino </option>
+					<option  value="masculino" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.GeneroPaciente.Equals("masculino") ? "selected" : string.Empty) : string.Empty) : string.Empty)> Masculino </option>
+				</select>
 			</p>
 		</div>
 		<div class="col-md-3">
@@ -128,7 +130,7 @@
 
 	<div class="text-center">
 		<br />
-		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Paciente/Mostrar'">GUARDAR</button>
+		<button name="btnGuardarPaciente" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Paciente/Mostrar'" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>GUARDAR</button>
 		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Paciente/Listar'">SALIR</button>
 	</div>
 </form>
