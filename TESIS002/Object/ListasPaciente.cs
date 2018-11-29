@@ -26,7 +26,7 @@ namespace TESIS002.Object
 							   $"{paciente.HistoriaClinicaPaciente};" +
 							   $"{paciente.NombrePaciente};" +
 				               $"{paciente.CedulaPaciente};" +
-							   $"{paciente.DirecciónPaciente};" +
+							   $"{paciente.DireccionPaciente};" +
 							   $"{paciente.TelefonoPaciente};" +
 				               $"{paciente.FechaNacimientoPaciente};" +
 				               $"{paciente.GeneroPaciente};" +
@@ -56,7 +56,7 @@ namespace TESIS002.Object
 					paciente.HistoriaClinicaPaciente = datos[1];
 					paciente.NombrePaciente = datos[2];
 					paciente.CedulaPaciente = datos[3];
-					paciente.DirecciónPaciente = datos[4];
+					paciente.DireccionPaciente = datos[4];
 					paciente.TelefonoPaciente = datos[5];
 					paciente.FechaNacimientoPaciente = datos[6];
 					paciente.GeneroPaciente = datos[7];

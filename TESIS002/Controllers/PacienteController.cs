@@ -27,7 +27,7 @@ namespace TESIS002.Controllers
 		{
 			if (!string.IsNullOrEmpty(paciente.NombrePaciente) && 
 				!string.IsNullOrEmpty(paciente.CedulaPaciente) && 
-				!string.IsNullOrEmpty(paciente.DirecciónPaciente) && 
+				!string.IsNullOrEmpty(paciente.DireccionPaciente) && 
 				!string.IsNullOrEmpty(paciente.TelefonoPaciente) && 
 				!string.IsNullOrEmpty(paciente.FechaNacimientoPaciente) && 
 				!string.IsNullOrEmpty(paciente.GeneroPaciente) &&
@@ -42,8 +42,9 @@ namespace TESIS002.Controllers
 				paciente.IdPaciente = numeroPacientes.ToString();
 				this.listas.addListaPaciente(paciente);
 				paciente = listas.searchPacienteCedula(paciente.CedulaPaciente);
-				return View(paciente);
-			}
+                //return View(paciente);
+                return RedirectToAction("Listar", "Paciente");
+            }
 			else
 			{
 				return View(paciente);

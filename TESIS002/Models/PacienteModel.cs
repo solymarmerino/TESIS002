@@ -11,7 +11,7 @@ namespace TESIS002.Models
 		public string HistoriaClinicaPaciente { get; set; }
 		public string NombrePaciente { get; set; }
 		public string CedulaPaciente { get; set; }
-		public string DirecciónPaciente { get; set; }
+		public string DireccionPaciente { get; set; }
 		public string TelefonoPaciente { get; set; }
 		public string FechaNacimientoPaciente { get; set; }
 		public string GeneroPaciente { get; set; }
