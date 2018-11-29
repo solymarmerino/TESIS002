@@ -69,12 +69,12 @@
 			<p>
 				<label>Estado Civil</label>
 				<br />
-				<select style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
-					<option value="soltero">SOLTERO</option>
-					<option value="casado">CASADO</option>
-					<option value="viudo">VIUDO</option>
-					<option value="divorciado">DIVORCIADO</option>
-					<option value="union libre">UNION LIBRE</option>
+				<select name="EstadoCivilPaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>
+					<option value="soltero" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.EstadoCivilPaciente.Equals("soltero") ? "selected" : string.Empty) : string.Empty) : string.Empty)>SOLTERO</option>
+					<option value="casado" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.EstadoCivilPaciente.Equals("casado") ? "selected" : string.Empty) : string.Empty) : string.Empty)>CASADO</option>
+					<option value="viudo" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.EstadoCivilPaciente.Equals("viudo") ? "selected" : string.Empty) : string.Empty) : string.Empty)>VIUDO</option>
+					<option value="divorciado" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.EstadoCivilPaciente.Equals("divorciado") ? "selected" : string.Empty) : string.Empty) : string.Empty)>DIVORCIADO</option>
+					<option value="union libre" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.EstadoCivilPaciente.Equals("union libre") ? "selected" : string.Empty) : string.Empty) : string.Empty)>UNION LIBRE</option>
 				</select>
 			</p>
 		</div>
@@ -82,15 +82,15 @@
 			<p>
 				<label>Tipo de Sangre</label>
 				<br />
-				<select style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
-					<option value="a+">A+</option>
-					<option value="a-">A-</option>
-					<option value="b+">B+</option>
-					<option value="b-">B-</option>
-					<option value="ab+">AB+</option>
-					<option value="ab-">AB-</option>
-					<option value="o+">O+</option>
-					<option value="o+">O-</option>
+				<select style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>
+					<option value="A+" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("A+") ? "selected" : string.Empty) : string.Empty) : string.Empty)>A+</option>
+					<option value="A-" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("A-") ? "selected" : string.Empty) : string.Empty) : string.Empty)>A-</option>
+					<option value="B+" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("B+") ? "selected" : string.Empty) : string.Empty) : string.Empty)>B+</option>
+					<option value="B-" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("B-") ? "selected" : string.Empty) : string.Empty) : string.Empty)>B-</option>
+					<option value="AB+" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("AB+") ? "selected" : string.Empty) : string.Empty) : string.Empty)>AB+</option>
+					<option value="AB-" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("AB-") ? "selected" : string.Empty) : string.Empty) : string.Empty)>AB-</option>
+					<option value="O+" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("O+") ? "selected" : string.Empty) : string.Empty) : string.Empty)>O+</option>
+					<option value="O-" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("O-") ? "selected" : string.Empty) : string.Empty) : string.Empty)>O-</option>
 				</select>
 			</p>
 		</div>
