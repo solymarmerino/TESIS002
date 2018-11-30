@@ -15,7 +15,7 @@ namespace TESIS002.Controllers
 
 		public ActionResult Listar()
         {
-			return View();
+			return View(this.listas.getListaPaciente());
 		}
         public ActionResult Ingresar()
         {
@@ -51,14 +51,17 @@ namespace TESIS002.Controllers
 			}
 		}
 
-		public ActionResult Mostrar()
+        [HttpPost]
+		public ActionResult Mostrar(string idPaciente)
         {
-            return View();
+            PacienteModel paciente = this.listas.searchPaciente(idPaciente);
+            return View(paciente);
         }
 
-        public ActionResult Actualizar()
+        public ActionResult Actualizar(PacienteModel paciente)
         {
-            return View();
+            PacienteModel pacienteResultado = this.listas.searchPaciente(paciente.IdPaciente);
+            return View(pacienteResultado);
         }
     }
 }

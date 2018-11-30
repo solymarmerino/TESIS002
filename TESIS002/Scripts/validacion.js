@@ -1,23 +1,5 @@
 ﻿function validarCedula() {
-
-    /**
-       * Algoritmo para validar cedulas de Ecuador
-       * @Author : Victor Diaz De La Gasca.
-       * @Fecha  : Quito, 15 de Marzo del 2013 
-       * @Email  : vicmandlagasca@gmail.com
-       * @Pasos  del algoritmo
-       * 1.- Se debe validar que tenga 10 numeros
-       * 2.- Se extrae los dos primero digitos de la izquierda y compruebo que existan las regiones
-       * 3.- Extraigo el ultimo digito de la cedula
-       * 4.- Extraigo Todos los pares y los sumo
-       * 5.- Extraigo Los impares los multiplico x 2 si el numero resultante es mayor a 9 le restamos 9 al resultante
-       * 6.- Extraigo el primer Digito de la suma (sumaPares + sumaImpares)
-       * 7.- Conseguimos la decena inmediata del digito extraido del paso 6 (digito + 1) * 10
-       * 8.- restamos la decena inmediata - suma / si la suma nos resulta 10, el decimo digito es cero
-       * 9.- Paso 9 Comparamos el digito resultante con el ultimo digito de la cedula si son iguales todo OK sino existe error.     
-       */
-
-    var cedula = document.getElementsByName("CedulaPersonal")[0].value;
+    var cedula = document.getElementById("Cedula").value;
 
     //Preguntamos si la cedula consta de 10 digitos
     if (cedula.length == 10) {
@@ -76,21 +58,21 @@
             //Validamos que el digito validador sea igual al de la cedula
             if (digito_validador == ultimo_digito) {
                 console.log('la cedula:' + cedula + ' es correcta');
-                document.getElementsByName("ValidacionCedula")[0].innerHTML = ("");
+                document.getElementById("salida").innerHTML = ("");
             } else {
                 console.log('la cedula:' + cedula + ' es incorrecta');
-                document.getElementsByName("ValidacionCedula")[0].innerHTML = ("Cedula Inválida");
+                document.getElementById("salida").innerHTML = ("Cedula Inválida");
             }
 
         } else {
             // imprimimos en consola si la region no pertenece
             console.log('Esta cedula no pertenece a ninguna region');
-            document.getElementsByName("ValidacionCedula")[0].innerHTML = ("Cedula Inválida");
+            document.getElementById("salida").innerHTML = ("Cedula Inválida");
         }
     } else {
         //imprimimos en consola si la cedula tiene mas o menos de 10 digitos
         console.log('Esta cedula tiene menos de 10 Digitos');
-        document.getElementsByName("ValidacionCedula")[0].innerHTML = ("Cedula Inválida");
+        document.getElementById("salida").innerHTML = ("Cedula Inválida");
     }
 
 }
@@ -100,4 +82,12 @@ function validarFormulario() {
     jQuery.validator.messages.required = 'Esta campo es obligatorio.';
     jQuery.validator.messages.number = 'Esta campo debe ser num&eacute;rico.';
     $("#IngresarPersonal").validate();
+    $("#IngresarPaciente").validate();
+    $("#ActualizarPaciente").validate();
+}
+
+function validarFormularioSimple() {
+    jQuery.validator.messages.required = 'Esta campo es obligatorio.';
+    jQuery.validator.messages.number = 'Esta campo debe ser num&eacute;rico.';
+    $("#IngresarServicioPersonal").validate();
 }

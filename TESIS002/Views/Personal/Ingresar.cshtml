@@ -21,7 +21,7 @@
             <p>
                 <label>Cedula</label>
                 <br />
-                <input id="ced" name="CedulaPersonal" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.CedulaPersonal : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? "disabled" : string.Empty) : string.Empty)/>
+                <input id="Cedula" name="CedulaPersonal" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.CedulaPersonal : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? "disabled" : string.Empty) : string.Empty)/>
                 <label id="salida" name="ValidacionCedula" />
             </p>
         </div>
@@ -87,14 +87,14 @@
             <p>
                 <label>Valor</label>
                 <br />
-                <input name="ValorServicio" lass="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                <input name="ValorServicio" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
             </p>
         </div>
         <div class="col-xl-3">
             <p>
                 <label></label>
                 <br />
-                <button name="Btn" value="ingresar" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? string.Empty : "disabled" ) : "disabled")>Ingresar Servicio</button>
+                <button name="Btn" value="ingresar" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormularioSimple()"@(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? string.Empty : "disabled" ) : "disabled")>Ingresar Servicio</button>
             </p>
         </div>
     </div>
