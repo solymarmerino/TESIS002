@@ -88,7 +88,7 @@ namespace TESIS002.Controllers
             }
             if (!servicoPersonal.Btn.Equals("ingresar") && !servicoPersonal.Btn.Equals("listarServicio"))
             {
-                listas.deleteServicioPersonal(servicoPersonal.Btn);
+                //listas.deleteServicioPersonal(servicoPersonal.Btn);
             }
 
             PersonalModel empleado = listas.searchPersonal(servicoPersonal.IdPersonal);

@@ -66,7 +66,7 @@
 </form>
 <br />
 <h5 class="text-center">Servicios del Personal</h5>
-<form id="IngresarServicioPersonal" action="Servicio" method="post">
+<form id="IngresarServicioPersonalServicio" action="Servicio" method="post">
     <input name="IdPersonal" value="@(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? Model.IdPersonal : string.Empty) : string.Empty)" type="hidden" />
     <div class="row">
         <div class="col-xl-6">
@@ -92,7 +92,7 @@
             <p>
                 <label></label>
                 <br />
-                <button name="Btn" value="ingresar" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? string.Empty : "disabled") : "disabled")>Ingresar Servicio</button>
+                <button name="Btn" value="ingresar" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="validarFormularioSimple()" type="submit" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPersonal) ? string.Empty : "disabled") : "disabled")>Ingresar Servicio</button>
             </p>
         </div>
     </div>
@@ -110,7 +110,8 @@
                 <td scope="col">@servicioPersonal.NombreServicio</td>
                 <td scope="col">@servicioPersonal.ValorServicio</td>
                 <td>
-                    <form action="Servicio" method="post">
+                    <form id="EliminarServicioPersonal" action="Servicio" method="post">
+                        <input name="IdPersonalServicio" value="@servicioPersonal.IdPersonal" hidden/>
                         <button name="Btn" value="@servicioPersonal.IdPersonalServicio" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">&#9998;</button>
                     </form>
                 </td>
