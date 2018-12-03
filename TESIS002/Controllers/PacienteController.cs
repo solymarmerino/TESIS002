@@ -105,7 +105,8 @@ namespace TESIS002.Controllers
 				!string.IsNullOrEmpty(paciente.AntecedentesPaciente))
 			{
 				this.listas.modificarPaciente(paciente);
-				return RedirectToAction("Listar", "Paciente");
+                //return RedirectToAction("Listar", "Paciente");
+                return View("Mostrar",paciente);
 			}
 			else
 			{
