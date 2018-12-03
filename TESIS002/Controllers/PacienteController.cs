@@ -15,9 +15,16 @@ namespace TESIS002.Controllers
 
 		public ActionResult Listar()
         {
+
 			return View(this.listas.getListaPaciente());
 		}
-        public ActionResult Ingresar()
+		[HttpGet]
+		public ActionResult Listar(string tipoparametro, string parametro)
+		{
+
+			return View(this.listas.getListaPaciente());
+		}
+		public ActionResult Ingresar()
         {
             return View();
         }
@@ -58,10 +65,37 @@ namespace TESIS002.Controllers
             return View(paciente);
         }
 
-        public ActionResult Actualizar(PacienteModel paciente)
-        {
-            PacienteModel pacienteResultado = this.listas.searchPaciente(paciente.IdPaciente);
-            return View(pacienteResultado);
-        }
-    }
+		[HttpPost]
+		public ActionResult Actualizar(PacienteModel paciente)
+		{
+			PacienteModel pacienteResultado = this.listas.searchPaciente(paciente.IdPaciente);
+			return View(pacienteResultado);
+		}
+
+		[HttpPost]
+		public ActionResult ActualizarPaciente(PacienteModel paciente)
+		{
+
+			if (!string.IsNullOrEmpty(paciente.NombrePaciente) &&
+				!string.IsNullOrEmpty(paciente.CedulaPaciente) &&
+				!string.IsNullOrEmpty(paciente.DireccionPaciente) &&
+				!string.IsNullOrEmpty(paciente.TelefonoPaciente) &&
+				!string.IsNullOrEmpty(paciente.FechaNacimientoPaciente) &&
+				!string.IsNullOrEmpty(paciente.GeneroPaciente) &&
+				!string.IsNullOrEmpty(paciente.EstadoCivilPaciente) &&
+				!string.IsNullOrEmpty(paciente.TipoSangrePaciente) &&
+				!string.IsNullOrEmpty(paciente.NombreContactoEmergenciaPaciente) &&
+				!string.IsNullOrEmpty(paciente.AfinidadContactoEmergenciaPaciente) &&
+				!string.IsNullOrEmpty(paciente.TipoSangrePaciente) &&
+				!string.IsNullOrEmpty(paciente.AntecedentesPaciente))
+			{
+				this.listas.modificarPaciente(paciente);
+				return RedirectToAction("Listar", "Paciente");
+			}
+			else
+			{
+				return RedirectToAction("Mostrar", "Personal");
+			}
+		}
+	}
 }

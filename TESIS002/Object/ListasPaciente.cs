@@ -107,6 +107,37 @@ namespace TESIS002.Object
 			return pacienteEncontrado;
 		}
 
+		public void modificarPaciente(PacienteModel paciente)
+		{
+			string rutacompleta = @"E:\Paciente.txt";
+			string[] renglones = File.ReadAllLines(rutacompleta);
+			this.ListaPaciente = this.getListaPaciente();
+			PacienteModel pacienteEncontrado = new PacienteModel();
+			int cont = 0;
+			foreach (var persona in ListaPaciente)
+			{
+				if (persona.IdPaciente.Equals(paciente.IdPaciente))
+				{
+					renglones[cont] = $"{paciente.IdPaciente};" +
+							   $"{paciente.HistoriaClinicaPaciente};" +
+							   $"{paciente.NombrePaciente};" +
+							   $"{paciente.CedulaPaciente};" +
+							   $"{paciente.DireccionPaciente};" +
+							   $"{paciente.TelefonoPaciente};" +
+							   $"{paciente.FechaNacimientoPaciente};" +
+							   $"{paciente.GeneroPaciente};" +
+							   $"{paciente.EstadoCivilPaciente};" +
+							   $"{paciente.TipoSangrePaciente};" +
+							   $"{paciente.NombreContactoEmergenciaPaciente};" +
+							   $"{paciente.AfinidadContactoEmergenciaPaciente};" +
+							   $"{paciente.TelefonoContatoEmergenciaPaciente};" +
+							   $"{paciente.AntecedentesPaciente}";
+				}
+				cont++;
+			}
+			File.WriteAllLines(rutacompleta, renglones);
+		}
+
 		public int numberOfPaciente()
 		{
 			this.ListaPaciente = this.getListaPaciente();
