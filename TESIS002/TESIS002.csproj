@@ -306,11 +306,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CitaListaModel.cs" />
+    <Compile Include="Models\CitaModel.cs" />
     <Compile Include="Models\PacienteModel.cs" />
     <Compile Include="Models\ServicioPersonalModel.cs" />
     <Compile Include="Models\PersonalModel.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Object\Listas.cs" />
+    <Compile Include="Object\ListasCita.cs" />
     <Compile Include="Object\ListasPaciente.cs" />
     <Compile Include="Object\Personal.cs" />
     <Compile Include="Object\Validacion.cs" />
