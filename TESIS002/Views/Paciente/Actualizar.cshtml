@@ -13,7 +13,7 @@
         <p>
             <label>Nº Historia Clinica</label>
             <br />
-            <input name="HistoriaClinicaPaciente" class="required" style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" value="@(Model!=null ? Model.HistoriaClinicaPaciente : string.Empty)" disabled />
+            <input name="HistoriaClinicaPacienteMostrar" class="required" style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" value="@(Model!=null ? Model.HistoriaClinicaPaciente : string.Empty)" disabled />
         </p>
     </div>
 
@@ -31,7 +31,7 @@
             <p>
                 <label>Cedula</label>
                 <br />
-                <input id="Cedula" name="CedulaPaciente" class="required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.CedulaPaciente : string.Empty)" disabled />
+                <input id="Cedula" name="CedulaPacienteMostrar" class="required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.CedulaPaciente : string.Empty)" disabled />
                 <label id="salida" name="ValidacionCedula" />
             </p>
         </div>
@@ -132,10 +132,10 @@
     </div>
 
 
-	<div class="text-center">
-		<br />
-		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormulario()" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>GUARDAR</button>
-		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Login/Lobby'">SALIR</button>
-	</div>
+    <div class="text-center">
+        <br />
+        <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormulario()" @(Model != null ? (string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>GUARDAR</button>
+        <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Login/Lobby'">SALIR</button>
+    </div>
 </form>
 

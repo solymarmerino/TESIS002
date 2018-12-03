@@ -109,7 +109,7 @@ namespace TESIS002.Controllers
 			}
 			else
 			{
-				return RedirectToAction("Mostrar", "Personal");
+				return RedirectToAction("Listar", "Paciente");
 			}
 		}
 	}
