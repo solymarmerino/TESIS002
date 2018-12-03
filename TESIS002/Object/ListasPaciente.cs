@@ -93,6 +93,34 @@ namespace TESIS002.Object
 			return pacienteEncontrado;
 		}
 
+		public PacienteModel buscarPacienteNombre(string nombrePaciente)
+		{
+			this.ListaPaciente = this.getListaPaciente();
+			PacienteModel pacienteEncontrado = new PacienteModel();
+			foreach (var paciente in ListaPaciente)
+			{
+				if (paciente.NombrePaciente.Equals(nombrePaciente))
+				{
+					pacienteEncontrado = paciente;
+				}
+			}
+			return pacienteEncontrado;
+		}
+
+		public PacienteModel buscarPacienteHCPaciente(string historiaClinicaPaciente)
+		{
+			this.ListaPaciente = this.getListaPaciente();
+			PacienteModel pacienteEncontrado = new PacienteModel();
+			foreach (var paciente in ListaPaciente)
+			{
+				if (paciente.HistoriaClinicaPaciente.Equals(historiaClinicaPaciente))
+				{
+					pacienteEncontrado = paciente;
+				}
+			}
+			return pacienteEncontrado;
+		}
+
 		public PacienteModel searchPacienteCedula(string cedulaPaciente)
 		{
 			this.ListaPaciente = this.getListaPaciente();

@@ -15,12 +15,27 @@ namespace TESIS002.Controllers
 
 		public ActionResult Listar()
         {
-
 			return View(this.listas.getListaPaciente());
 		}
 		[HttpGet]
-		public ActionResult Listar(string tipoparametro, string parametro)
+		public ActionResult Listar(string tipoParametro, string parametroBusqueda)
 		{
+	
+			if (!string.IsNullOrEmpty(parametroBusqueda) && tipoParametro.Equals("Nombre"))
+			{
+				PacienteModel paciente = this.listas.buscarPacienteNombre(parametroBusqueda);
+				return View(paciente);
+			}
+			if (!string.IsNullOrEmpty(parametroBusqueda) && tipoParametro.Equals("Cedula"))
+			{
+				PacienteModel paciente = this.listas.searchPaciente(parametroBusqueda);
+				return View(paciente);
+			}
+			if (!string.IsNullOrEmpty(parametroBusqueda) && tipoParametro.Equals("HCPaciente"))
+			{
+				PacienteModel paciente = this.listas.buscarPacienteHCPaciente(parametroBusqueda);
+				return View(paciente);
+			}
 
 			return View(this.listas.getListaPaciente());
 		}
