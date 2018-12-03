@@ -205,9 +205,10 @@ namespace TESIS002.Object
             this.ListaServicioPersonal.Remove(aServicePersonal);
 
             string rutaCompleta = @"E:\ServicioPersonal.txt";
+            File.Delete(rutaCompleta);
 
             StreamWriter file = new StreamWriter(rutaCompleta, true);
-            file.Flush();
+            
             foreach (var servicioPersonal in ListaServicioPersonal)
             {
                 string texto = $"{servicioPersonal.IdPersonalServicio};{servicioPersonal.IdPersonal};{servicioPersonal.NombreServicio};{servicioPersonal.ValorServicio}";
