@@ -5,7 +5,7 @@
 }
 
 <h2 style="text-align:center">Actualizar Información Paciente</h2>
-<form id="ActualizarPaciente" action="Actualizar" method="post">
+<form action="ActualizarPaciente" method="post">
     <input name="idPaciente" value="@(Model!=null ? Model.IdPaciente : string.Empty)" type="hidden" />
     <input name="HistoriaClinicaPaciente" value="@(Model!=null ? Model.HistoriaClinicaPaciente : string.Empty)" type="hidden" />
     <input name="CedulaPaciente" value="@(Model!=null ? Model.CedulaPaciente : string.Empty)" type="hidden" />
@@ -132,10 +132,10 @@
     </div>
 
 
-    <div class="text-center">
-        <br />
-        <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormulario()">ACTUALIZAR PACIENTE</button>
-        <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Login/Lobby'">SALIR</button>
-    </div>
+	<div class="text-center">
+		<br />
+		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormulario()" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>GUARDAR</button>
+		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Login/Lobby'">SALIR</button>
+	</div>
 </form>
 
