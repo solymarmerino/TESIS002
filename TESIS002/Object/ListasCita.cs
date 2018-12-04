@@ -64,6 +64,7 @@ namespace TESIS002.Object
         public List<CitaListaModel> getListaCitaPaciente(string idPaciente)
         {
             List<CitaListaModel> citasPaciente = new List<CitaListaModel>();
+            this.listaCita.Clear();
             this.listaCita = this.getListaCita();
 
             foreach (var cita in listaCita)
@@ -86,7 +87,8 @@ namespace TESIS002.Object
 
         public int numberOfCita()
 		{
-			this.listaCita = this.getListaCita();
+            this.listaCita.Clear();
+            this.listaCita = this.getListaCita();
 			int numero = this.listaCita.Count() - 1;
 			int siguienteId = 0;
             if(numero >= 0)
