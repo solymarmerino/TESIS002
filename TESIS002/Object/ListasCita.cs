@@ -61,6 +61,38 @@ namespace TESIS002.Object
 			}
 		}
 
+        public List<CitaModel> getListaCitaConPaciente()
+        {
+            ListasPaciente listasPaciente = new ListasPaciente();
+            string rutacompleta = @"E:\Cita.txt";
+            string[] renglones = File.ReadAllLines(rutacompleta);
+
+            try
+            {
+                foreach (var linea in renglones)
+                {
+                    CitaModel cita = new CitaModel();
+                    string[] datos = linea.Split(';');
+                    cita.IdCita = datos[0];
+                    cita.IdPaciente = datos[1];
+                    cita.Especialidad = datos[2];
+                    cita.Medico = datos[3];
+                    cita.TipoCita = datos[4];
+
+                    cita.Paciente = listasPaciente.searchPaciente(datos[1]);
+
+                    this.listaCita.Add(cita);
+
+                }
+                return this.listaCita;
+            }
+
+            catch (Exception e)
+            {
+                return this.listaCita;
+            }
+        }
+
         public List<CitaListaModel> getListaCitaPaciente(string idPaciente)
         {
             List<CitaListaModel> citasPaciente = new List<CitaListaModel>();

@@ -36,8 +36,8 @@ namespace TESIS002.Controllers
         }
 
         public ActionResult Listar()
-        {
-            return View();
+        { 
+            return View(listasCita.getListaCitaConPaciente());
         }
     }
 }

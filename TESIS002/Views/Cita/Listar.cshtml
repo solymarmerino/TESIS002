@@ -1,41 +1,44 @@
-﻿
+﻿@model List<TESIS002.Models.CitaModel>
 @{
-	ViewBag.Title = "Listar";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2 style="text-align:center">Citas Médicas</h2>
 <br />
 <div class="table-responsive">
-	<table class="table">
-		<tr>
-			<th scope="col">Paciente</th>
-			<th scope="col">Historia Cl&iacute;nica</th>
-			<th scope="col">C&eacute;dula</th>
-			<th scope="col">M&eacute;dico</th>
-			<th scope="col">Pagado</th>
-			<th scope="col">Enfermer&iacute;a</th>
-			<th scope="col">Atenci&oacute;n</th>
-			<th scope="col">Facturado</th>
-		</tr>
-		<tr>
-			<td scope="col">JUAN DAVID MOLINA PEREZ</td>
-			<td scope="col">00001</td>
-			<td scope="col">1234567890</td>
-			<td scope="col">MEDICO 1</td>
-			<td scope="col">SI</td>
-			<td scope="col">SI</td>
-			<td scope="col">SI</td>
-			<td scope="col">SI</td>
-		</tr>
-	</table>
+    <table class="table">
+        <tr>
+            <th scope="col">Paciente</th>
+            <th scope="col">Historia Cl&iacute;nica</th>
+            <th scope="col">C&eacute;dula</th>
+            <th scope="col">M&eacute;dico</th>
+            <th scope="col">Pagado</th>
+            <th scope="col">Enfermer&iacute;a</th>
+            <th scope="col">Atenci&oacute;n</th>
+            <th scope="col">Facturado</th>
+        </tr>
+        @foreach (var cita in Model)
+        {
+            <tr>
+                <td scope="col">@cita.Paciente.NombrePaciente</td>
+                <td scope="col">@cita.Paciente.HistoriaClinicaPaciente</td>
+                <td scope="col">@cita.Paciente.CedulaPaciente</td>
+                <td scope="col">@cita.Medico</td>
+                <td scope="col">NO</td>
+                <td scope="col">NO</td>
+                <td scope="col">NO</td>
+                <td scope="col">NO</td>
+            </tr>
+        }
+    </table>
 </div>
 <br />
 <div class="text-center">
-	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">ELIMINAR</button>
-	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">MODIFICAR</button>
-	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">FACTURAR</button>
-	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Cita/Ingresar'">NUEVA</button>
+    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">ELIMINAR</button>
+    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">MODIFICAR</button>
+    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">FACTURAR</button>
+    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Cita/Ingresar'">NUEVA</button>
 </div>
 
 
