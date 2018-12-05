@@ -27,6 +27,10 @@ namespace TESIS002.Controllers
             {
                 int numeroCita = listasCita.numberOfCita() + 1;
                 cita.IdCita = numeroCita.ToString();
+                cita.Pagado = "NO";
+                cita.Enfermeria = "NO";
+                cita.Atencion = "NO";
+                cita.Facturado = "NO";
                 listasCita.addCita(cita);
             }
             CitaModel citaEnviar = cita;
@@ -36,8 +40,19 @@ namespace TESIS002.Controllers
         }
 
         public ActionResult Listar()
-        { 
+        {
             return View(listasCita.getListaCitaConPaciente());
+        }
+
+        public ActionResult CambiarAPagado(string IdCita)
+        {
+
+            return View("Listar", listasCita.getListaCitaConPaciente());
+        }
+
+        public ActionResult CambiarAFacturado(string IdCita)
+        {
+            return View("Listar", listasCita.getListaCitaConPaciente());
         }
     }
 }

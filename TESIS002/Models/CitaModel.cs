@@ -14,5 +14,9 @@ namespace TESIS002.Models
         public string TipoCita { get; set; }                          
         public PacienteModel Paciente { get; set; }
         public List<CitaListaModel> ListaCita { get; set; }
+        public string Pagado { get; set; }
+        public string Enfermeria { get; set; }
+        public string Atencion { get; set; }
+        public string Facturado { get; set; }
     }
 }

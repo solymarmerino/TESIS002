@@ -26,7 +26,11 @@ namespace TESIS002.Object
 							   $"{cita.IdPaciente};" +
 							   $"{cita.Especialidad};" +
 				               $"{cita.Medico};" +
-							   $"{cita.TipoCita}";
+				               $"{cita.TipoCita};" +
+				               $"{cita.Pagado};" +
+				               $"{cita.Enfermeria};" +
+				               $"{cita.Atencion};" +
+							   $"{cita.Facturado}";
 				file.WriteLine(texto);
 				file.Close();
 			}
@@ -48,6 +52,10 @@ namespace TESIS002.Object
 					cita.Especialidad = datos[2];
 					cita.Medico = datos[3];
 					cita.TipoCita = datos[4];
+                    cita.Pagado = datos[5];
+                    cita.Enfermeria = datos[6];
+                    cita.Atencion = datos[7];
+                    cita.Facturado = datos[8];
 					
 					this.listaCita.Add(cita);
 
@@ -78,6 +86,10 @@ namespace TESIS002.Object
                     cita.Especialidad = datos[2];
                     cita.Medico = datos[3];
                     cita.TipoCita = datos[4];
+                    cita.Pagado = datos[5];
+                    cita.Enfermeria = datos[6];
+                    cita.Atencion = datos[7];
+                    cita.Facturado = datos[8];
 
                     cita.Paciente = listasPaciente.searchPaciente(datos[1]);
 
