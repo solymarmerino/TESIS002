@@ -128,6 +128,21 @@ namespace TESIS002.Object
             return citasPaciente;
         }
 
+        public CitaModel getCita(string idCita)
+        {
+            CitaModel citaEncontrada = new CitaModel();
+            this.listaCita.Clear();
+            this.listaCita = this.getListaCita();
+
+            foreach (var cita in listaCita)
+            {
+                if (cita.IdCita.Equals(idCita))
+                {
+                    citaEncontrada = cita;
+                }
+            }
+            return citaEncontrada;
+        }
 
         public int numberOfCita()
 		{
@@ -142,5 +157,31 @@ namespace TESIS002.Object
             return siguienteId;
 		}
 
-	}
+        public void actualizarCita(CitaModel cita)
+        {
+            string rutaCompleta = @"E:\Cita.txt";
+            string[] renglones = File.ReadAllLines(rutaCompleta);
+            this.listaCita.Clear();
+            this.listaCita = this.getListaCita();
+            int cont = 0;
+            foreach (var citaActualizar in listaCita)
+            {
+                if (cita.IdCita.Equals(citaActualizar.IdCita))
+                {
+                    renglones[cont] = $"{cita.IdCita};" +
+                               $"{cita.IdPaciente};" +
+                               $"{cita.Especialidad};" +
+                               $"{cita.Medico};" +
+                               $"{cita.TipoCita};" +
+                               $"{cita.Pagado};" +
+                               $"{cita.Enfermeria};" +
+                               $"{cita.Atencion};" +
+                               $"{cita.Facturado}";
+                }
+                cont++;
+            }
+            File.WriteAllLines(rutaCompleta, renglones);
+        }
+
+    }
 }

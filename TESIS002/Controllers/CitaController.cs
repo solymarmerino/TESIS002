@@ -44,9 +44,27 @@ namespace TESIS002.Controllers
             return View(listasCita.getListaCitaConPaciente());
         }
 
-        public ActionResult CambiarAPagado(string IdCita)
+        public ActionResult CambiarEstado(CitaModel cita)
         {
+            CitaModel citaEnviar = listasCita.getCita(cita.IdCita);
+            if (!string.IsNullOrEmpty(cita.Pagado))
+            {
+                citaEnviar.Pagado = cita.Pagado;
+            }
+            if (!string.IsNullOrEmpty(cita.Facturado))
+            {
+                citaEnviar.Facturado = cita.Facturado;
+            }
+            listasCita.actualizarCita(citaEnviar);
 
+            List<CitaModel> citasListar = listasCita.getListaCitaConPaciente();
+
+            return RedirectToAction("Listar", "Cita");
+        }
+
+        public ActionResult CambiarAPagado(CitaModel cita)
+        {
+            CitaModel citaEnviar = cita;
             return View("Listar", listasCita.getListaCitaConPaciente());
         }
 

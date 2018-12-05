@@ -35,14 +35,16 @@
             <td scope="col">@cita.Atencion</td>
             <td scope="col">@cita.Facturado</td>
             <td scope="col">
-                <form action="CambiarAPagado" method="post">
+                <form action="CambiarEstado" method="post">
+                    <input name="Pagado" value="SI" hidden/>
                     <button name="IdCita" value="@cita.IdCita" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
                         <i class="far fa-money-bill-alt"></i>
                     </button>
                 </form>
             </td>
             <td scope="col">
-                <form action="CambiarAFacturado" method="post">
+                <form action="CambiarEstado" method="post">
+                    <input name="Facturado" value="SI" hidden/>
                     <button name="IdCita" value="@cita.IdCita" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
                         <i class="fas fa-file-invoice-dollar"></i>
                     </button>
