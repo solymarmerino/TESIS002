@@ -11,6 +11,12 @@ namespace TESIS002.Controllers
     public class EnfermeriaController : Controller
     {
         ListasEnfermeria listaEnfermeria = new ListasEnfermeria();
+
+        public ActionResult Listar()
+        {
+            return View();
+        }
+
         // GET: Enfermeria
         public ActionResult IngresarSignosVitales(string id)
         {

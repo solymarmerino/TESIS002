@@ -91,4 +91,5 @@ function validarFormularioSimple() {
     jQuery.validator.messages.number = 'Esta campo debe ser num&eacute;rico.';
     $("#IngresarServicioPersonal").validate();
     $("#IngresarServicioPersonalServicio").validate();
+    $("#IngresarSignosVitales").validate();
 }
