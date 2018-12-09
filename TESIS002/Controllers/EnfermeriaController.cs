@@ -11,16 +11,17 @@ namespace TESIS002.Controllers
     public class EnfermeriaController : Controller
     {
         ListasEnfermeria listaEnfermeria = new ListasEnfermeria();
+        ListasPaciente listaPaciente = new ListasPaciente();
 
         public ActionResult Listar()
         {
-            return View();
+            return View(listaPaciente.getListaPaciente());
         }
 
         // GET: Enfermeria
-        public ActionResult IngresarSignosVitales(string id)
+        public ActionResult IngresarSignosVitales(string idPaciente)
         {
-            return View();
+            return View(listaPaciente.searchPaciente(idPaciente));
         }
 
         [HttpPost]
@@ -29,7 +30,7 @@ namespace TESIS002.Controllers
             int numeroSigno = listaEnfermeria.numberOfSigno() + 1;
             signo.IdSignoVital = numeroSigno.ToString();
             this.listaEnfermeria.addSignoVital(signo);
-            return RedirectToAction("Listar", "Cita");
+            return RedirectToAction("Listar", "Enfermeria");
         }
     }
 }
