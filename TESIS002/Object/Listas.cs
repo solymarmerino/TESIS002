@@ -62,6 +62,7 @@ namespace TESIS002.Object
 
         public PersonalModel searchPersonal(string idPersonal)
         {
+            this.ListaPersonal.Clear();
             this.ListaPersonal = this.getListaPersonal();
             PersonalModel personalEncontrado = new PersonalModel();
             foreach (var personal in ListaPersonal)
@@ -76,6 +77,7 @@ namespace TESIS002.Object
 
         public PersonalModel searchPersonalCedula(string cedulaPersonal)
         {
+            this.ListaPersonal.Clear();
             this.ListaPersonal = this.getListaPersonal();
             PersonalModel personalEncontrado = new PersonalModel();
             foreach (var personal in ListaPersonal)
@@ -90,6 +92,7 @@ namespace TESIS002.Object
 
         public PersonalModel searchPersonalUsuario(string usuarioPersonal)
         {
+            this.ListaPersonal.Clear();
             this.ListaPersonal = this.getListaPersonal();
             PersonalModel personalEncontrado = new PersonalModel();
             foreach (var personal in ListaPersonal)
@@ -104,6 +107,7 @@ namespace TESIS002.Object
 
         public void modifyPersonal(PersonalModel empleado)
         {
+            this.ListaPersonal.Clear();
             string rutacompleta = @"E:\Personal.txt";
             string[] renglones = File.ReadAllLines(rutacompleta);
             this.ListaPersonal = this.getListaPersonal();
@@ -122,6 +126,7 @@ namespace TESIS002.Object
 
         public int numberOfPersonal()
         {
+            this.ListaPersonal.Clear();
             this.ListaPersonal = this.getListaPersonal();
             int numero = this.ListaPersonal.Count() - 1;
             int siguienteId = Int32.Parse(this.ListaPersonal[numero].IdPersonal);
@@ -171,6 +176,7 @@ namespace TESIS002.Object
 
         public List<ServicioPersonalModel> getServicioPersonal(string idPersonal)
         {
+            this.ListaServicioPersonal.Clear();
             this.ListaServicioPersonal = this.getListaServicoPersonal();
             List<ServicioPersonalModel>  listaPersonal= new List<ServicioPersonalModel>();
             foreach (var servicioPersonal in ListaServicioPersonal)
@@ -185,6 +191,7 @@ namespace TESIS002.Object
 
         public ServicioPersonalModel getAServicioPersonal(string idServicePersonal)
         {
+            this.ListaServicioPersonal.Clear();
             this.ListaServicioPersonal = this.getListaServicoPersonal();
             ServicioPersonalModel aServicePersonal = new ServicioPersonalModel();
             foreach (var servicioPersonal in ListaServicioPersonal)
@@ -199,6 +206,7 @@ namespace TESIS002.Object
 
         public void deleteServicioPersonal(string idServicioPersonal)
         {
+            this.ListaServicioPersonal.Clear();
             ServicioPersonalModel aServicePersonal = this.getAServicioPersonal(idServicioPersonal);
             this.ListaServicioPersonal = this.getListaServicoPersonal();
 
@@ -218,6 +226,7 @@ namespace TESIS002.Object
         }
         public int numberOfServicioPersonal()
         {
+            this.ListaServicioPersonal.Clear();
             this.ListaServicioPersonal = this.getListaServicoPersonal();
             int numero = this.ListaServicioPersonal.Count()-1;
             int siguienteId = Int32.Parse(this.ListaServicioPersonal[numero].IdPersonalServicio)+1;
