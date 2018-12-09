@@ -55,7 +55,7 @@
 			<p>
 				<label>Fecha de Nacimiento</label>
 				<br />
-				<input name="FechaNacimientoPaciente" class="required" type="d" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.FechaNacimientoPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)/>
+				<input name="FechaNacimientoPaciente" class="required" type="date" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.FechaNacimientoPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)/>
 			</p>
 		</div>
 		<div class="col-xl-3">
