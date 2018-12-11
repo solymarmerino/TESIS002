@@ -22,6 +22,7 @@
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
         @foreach (var cita in Model)
         {
@@ -36,15 +37,23 @@
             <td scope="col">@cita.Facturado</td>
             <td scope="col">
                 <form action="CambiarEstado" method="post">
-                    <input name="Pagado" value="SI" hidden/>
+                    <input name="Pagado" value="SI" hidden />
                     <button name="IdCita" value="@cita.IdCita" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
                         <i class="far fa-money-bill-alt"></i>
                     </button>
                 </form>
             </td>
             <td scope="col">
+                <form action="../Enfermeria/IngresarSignosVitales" method="post">
+                    <input name="" value="" hidden />
+                    <button name="IdCita" value="@cita.IdCita" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+                        <i class="fas fa-user-md"></i>
+                    </button>
+                </form>
+            </td>
+            <td scope="col">
                 <form action="CambiarEstado" method="post">
-                    <input name="Facturado" value="SI" hidden/>
+                    <input name="Facturado" value="SI" hidden />
                     <button name="IdCita" value="@cita.IdCita" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
                         <i class="fas fa-file-invoice-dollar"></i>
                     </button>
@@ -70,3 +79,4 @@
 </div>
 
 
+    

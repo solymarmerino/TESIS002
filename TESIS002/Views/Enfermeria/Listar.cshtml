@@ -1,0 +1,38 @@
+﻿@model List<TESIS002.Models.PacienteModel>
+@{
+    ViewBag.Title = "Buscar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <h2 style="text-align:center">Historias Clínicas</h2>
+    <h3 style="text-align:center">Por ingresar signos vitales</h3>
+</p>
+
+<table class="table">
+    <tr>
+        <th scope="col">Paciente</th>
+        <th scope="col">Historia Cl&iacute;nica</th>
+        <th scope="col">C&eacute;dula</th>
+        <th scope="col"></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var paciente in Model)
+        {
+            <tr>
+                <td scope="col">@paciente.NombrePaciente</td>
+                <td scope="col">@paciente.HistoriaClinicaPaciente</td>
+                <td scope="col">@paciente.CedulaPaciente</td>
+                <td scope="col">
+                    <form action="IngresarSignosVitales" method="post">
+                        <button name="idPaciente" value="@paciente.IdPaciente" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    }
+
+</table>

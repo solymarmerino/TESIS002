@@ -139,6 +139,17 @@
                             </div>
                         </li>
                     }
+                    if (Session["typeUser"].Equals("administrador") || Session["typeUser"].Equals("enfermera"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="menuUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Enfermería
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="menuUsuario">
+                                <a class="dropdown-item" href="../Enfermeria/Listar">Listar</a>
+                            </div>
+                        </li>
+                    }
                 }
             </ul>
             @if (Session["login"].Equals("true"))

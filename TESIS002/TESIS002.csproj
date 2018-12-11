@@ -311,8 +311,10 @@
     <Compile Include="Models\PacienteModel.cs" />
     <Compile Include="Models\ServicioPersonalModel.cs" />
     <Compile Include="Models\PersonalModel.cs" />
+    <Compile Include="Models\SignoVital.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Object\Listas.cs" />
+    <Compile Include="Object\ListasEnfermeria.cs" />
     <Compile Include="Object\ListasCita.cs" />
     <Compile Include="Object\ListasPaciente.cs" />
     <Compile Include="Object\Personal.cs" />
@@ -432,9 +434,7 @@
     <Content Include="Views\HistoriaClinica\MostrarPrecionArterial.cshtml" />
     <Content Include="Views\Login\Lobby.cshtml" />
     <Content Include="Views\Personal\Servicio.cshtml" />
-    <Content Include="Views\Paciente\Listar - Copia.cshtml" />
-    <Content Include="Views\Paciente\Mostrar - Copia.cshtml" />
-    <Content Include="Views\Paciente\Actualizar - Copia.cshtml" />
+    <Content Include="Views\Enfermeria\Listar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
