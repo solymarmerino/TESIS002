@@ -110,49 +110,53 @@
 <br />
 <h3>Diagnostico</h3>
 <br />
-<div class="text-center">
-	<label>S</label>
-	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
-</div>
-<div class="text-center">
-	<label>O</label>
-	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
-</div>
-<div class="text-center">
-	<label>A</label>
-	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
-</div>
-<div class="text-center">
-	<label>P</label>
-	<textarea class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
-</div>
-<div class="row">
-	<div class="col-xl-5">
-		<label>Enfermedad</label>
-		<br />
-		<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
-	</div>
-	<div class="col-xl-3">
-		<label>CIE-10</label>
-		<br />
-		<input style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
-	</div>
-	<div class="col-xl-3">
-		<label>Reposo</label>
-		<br />
-		<input style="text-align:left; border-radius:0.3rem; width:150px; height:40px;" />
-		<label>días</label>
-	</div>
-</div>
-<div>
-	<label>Indicaciones</label>
-	<br />
-	<textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
-</div>
-<br />
-<div class="text-center">
-	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Ingresar</button>
-</div>
+
+<form action="IngresarDiagnostico" method="post">
+    <div class="text-center">
+	    <label>S</label>
+	    <textarea name="SDiagnostico" class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+    </div>
+    <div class="text-center">
+	    <label>O</label>
+	    <textarea name="ODiagnostico" class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+    </div>
+    <div class="text-center">
+	    <label>A</label>
+	    <textarea name="ADiagnostico" class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+    </div>
+    <div class="text-center">
+	    <label>P</label>
+	    <textarea name="PDiagnostico" class="col-xl-11" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+    </div>
+    <div class="row">
+	    <div class="col-xl-5">
+		    <label>Enfermedad</label>
+		    <br />
+		    <input name="EnfermedadDiagnostico" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	    </div>
+	    <div class="col-xl-3">
+		    <label>CIE-10</label>
+		    <br />
+		    <input name="CIE10Diagnostico" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	    </div>
+	    <div class="col-xl-3">
+		    <label>Reposo</label>
+		    <br />
+		    <input name="ReposoDiagnostico" style="text-align:left; border-radius:0.3rem; width:150px; height:40px;" />
+		    <label>días</label>
+	    </div>
+    </div>
+    <div>
+	    <label>Indicaciones</label>
+	    <br />
+	    <textarea name="IndicacionesDiagnostico" class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"></textarea>
+    </div>
+    <br />
+    <div class="text-center">
+	    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Ingresar</button>
+    </div>
+</form>
+
 <br />
 <h3>Diagnosticos Previos</h3>
 <div class="row">

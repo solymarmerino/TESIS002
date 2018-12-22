@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TESIS002.ConsultasBD;
 using TESIS002.Models;
 using TESIS002.Object;
 
@@ -10,7 +11,9 @@ namespace TESIS002.Controllers
 {
 	public class PacienteController : Controller
 	{
-		ListasPaciente listas = new ListasPaciente();
+        PacienteConsulta pacienteBD = new PacienteConsulta();
+        ParametroConsulta informacion = new ParametroConsulta();
+        ListasPaciente listas = new ListasPaciente();
 		// GET: Paciente
 
 		public ActionResult Listar()
@@ -21,52 +24,62 @@ namespace TESIS002.Controllers
 		[HttpGet]
 		public ActionResult Listar(string tipoParametro, string parametroBusqueda)
 		{
-
 			if (!string.IsNullOrEmpty(parametroBusqueda) && tipoParametro.Equals("Nombre"))
-				{
-					PacienteModel paciente = this.listas.buscarPacienteNombre(parametroBusqueda);
-					return View(paciente);
-				}
-				if (!string.IsNullOrEmpty(parametroBusqueda) && tipoParametro.Equals("Cedula"))
-				{
-			PacienteModel paciente = this.listas.searchPacienteCedula(parametroBusqueda);
+			{
+				PacienteModel paciente = this.listas.buscarPacienteNombre(parametroBusqueda);
 				return View(paciente);
-				}
-				if (!string.IsNullOrEmpty(parametroBusqueda) && tipoParametro.Equals("HCPaciente"))
-				{
-					PacienteModel paciente = this.listas.buscarPacienteHCPaciente(parametroBusqueda);
-					return View(paciente);
-				}
+			}
+			if (!string.IsNullOrEmpty(parametroBusqueda) && tipoParametro.Equals("Cedula"))
+			{
+                PacienteModel paciente = this.listas.searchPacienteCedula(parametroBusqueda);
+			    return View(paciente);
+			}
+			if (!string.IsNullOrEmpty(parametroBusqueda) && tipoParametro.Equals("HCPaciente"))
+			{
+				PacienteModel paciente = this.listas.buscarPacienteHCPaciente(parametroBusqueda);
+				return View(paciente);
+			}
 
-				return View(this.listas.getListaPaciente());
-		}
-		public ActionResult Ingresar()
+            //return View(this.listas.getListaPaciente());
+            return View(this.pacienteBD.listaPaciente());
+        }
+        public ActionResult Ingresar()
         {
+            ViewData["Generos"] = this.informacion.comboBoxGenero();
+            ViewData["EstadosCiviles"] = this.informacion.comboBoxEstadoCivil();
+            ViewData["TiposSangre"] = this.informacion.comboBoxTipoSangre();
+
             return View();
         }
-		/*lalalallal*/
+
 		[HttpPost]
-		public ActionResult Ingresar(PacienteModel paciente)
+		public ActionResult Ingresar(PacienteModelBK paciente)
 		{
 			if (!string.IsNullOrEmpty(paciente.NombrePaciente) && 
 				!string.IsNullOrEmpty(paciente.CedulaPaciente) && 
 				!string.IsNullOrEmpty(paciente.DireccionPaciente) && 
 				!string.IsNullOrEmpty(paciente.TelefonoPaciente) && 
-				!string.IsNullOrEmpty(paciente.FechaNacimientoPaciente) && 
-				!string.IsNullOrEmpty(paciente.GeneroPaciente) &&
-				!string.IsNullOrEmpty(paciente.EstadoCivilPaciente) &&
-				!string.IsNullOrEmpty(paciente.TipoSangrePaciente) &&
+				paciente.FechaNacimientoPaciente != null && 
+				paciente.GeneroPaciente != 0 &&
+				paciente.EstadoCivilPaciente != 0 &&
+				paciente.TipoSangrePaciente != 0 &&
 				!string.IsNullOrEmpty(paciente.NombreContactoEmergenciaPaciente) &&
 				!string.IsNullOrEmpty(paciente.AfinidadContactoEmergenciaPaciente) &&
-				!string.IsNullOrEmpty(paciente.TipoSangrePaciente) &&
+				paciente.TipoSangrePaciente != 0 &&
 				!string.IsNullOrEmpty(paciente.AntecedentesPaciente))
 			{
-				int numeroPacientes = listas.numberOfPaciente() + 1;
-				paciente.IdPaciente = numeroPacientes.ToString();
-				this.listas.addListaPaciente(paciente);
-				paciente = listas.searchPacienteCedula(paciente.CedulaPaciente);
+                this.pacienteBD.ingresarPaciente(paciente);
+                //int numeroPacientes = listas.numberOfPaciente() + 1;
+                //paciente.IdPaciente = numeroPacientes.ToString();
+                //this.listas.addListaPaciente(paciente);
+                //paciente = listas.searchPacienteCedula(paciente.CedulaPaciente);
                 //return View(paciente);
-               // return RedirectToAction("Listar", "Paciente");
+
+                ViewData["Generos"] = this.informacion.comboBoxGenero();
+                ViewData["EstadosCiviles"] = this.informacion.comboBoxEstadoCivil();
+                ViewData["TiposSangre"] = this.informacion.comboBoxTipoSangre();
+                PacienteModelBK pacienteEnviar = this.pacienteBD.obtenerPacientePorCedula(paciente.CedulaPaciente);
+                //return RedirectToAction("Listar", "Paciente");
 				return View("Mostrar", paciente);
 			}
 			else
@@ -78,15 +91,22 @@ namespace TESIS002.Controllers
         [HttpPost]
 		public ActionResult Mostrar(string idPaciente)
         {
-            PacienteModel paciente = this.listas.searchPaciente(idPaciente);
-            return View(paciente);
+            ViewData["Generos"] = this.informacion.comboBoxGenero();
+            ViewData["EstadosCiviles"] = this.informacion.comboBoxEstadoCivil();
+            ViewData["TiposSangre"] = this.informacion.comboBoxTipoSangre();
+            //PacienteModel paciente = this.listas.searchPaciente(idPaciente);
+            PacienteModelBK pacienteEnviar = this.pacienteBD.obtenerPaciente(idPaciente);
+            return View(pacienteEnviar);
         }
 
 		[HttpPost]
-		public ActionResult Actualizar(PacienteModel paciente)
+		public ActionResult Actualizar(string idPaciente)
 		{
-			PacienteModel pacienteResultado = this.listas.searchPaciente(paciente.IdPaciente);
-			return View(pacienteResultado);
+            ViewData["Generos"] = this.informacion.comboBoxGenero();
+            ViewData["EstadosCiviles"] = this.informacion.comboBoxEstadoCivil();
+            ViewData["TiposSangre"] = this.informacion.comboBoxTipoSangre();
+            PacienteModelBK pacienteEnviar = this.pacienteBD.obtenerPaciente(idPaciente);
+            return View(pacienteEnviar);
 		}
 
 		[HttpPost]

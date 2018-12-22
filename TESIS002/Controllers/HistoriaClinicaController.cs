@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TESIS002.Models;
 
 namespace TESIS002.Controllers
 {
@@ -55,6 +56,12 @@ namespace TESIS002.Controllers
         }
         public ActionResult MostrarPrecionArterial()
         {
+            return View();
+        }
+
+        public ActionResult IngresarDiagnostico(DiagnosticoModel diagnostico)
+        {
+
             return View();
         }
     }

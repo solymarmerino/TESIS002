@@ -1,8 +1,9 @@
-﻿@model TESIS002.Models.PacienteModel
+﻿@model TESIS002.Models.PacienteModelBK
 @{
     ViewBag.Title = "Mostrar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <h2 style="text-align:center">Información Paciente</h2>
 
@@ -10,7 +11,7 @@
     <p>
         <label>Nº Historia Clinica</label>
         <br />
-        <input name="HistoriaClinicaPaciente" class="required" style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" value="@(Model!=null ? Model.HistoriaClinicaPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty) />
+        <input name="HistoriaClinicaPaciente" class="required" style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" value="@Model.HistoriaClinicaPaciente" disabled />
     </p>
 </div>
 
@@ -18,7 +19,7 @@
     <div class="col-xl-10">
         <p>
             <label>Nombre Completo</label>
-            <input class="col-xl required" name="NombrePaciente" placeholder=" NOMBRES APELLIDOS" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.NombrePaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty) />
+            <input class="col-xl required" name="NombrePaciente" placeholder=" NOMBRES APELLIDOS" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@Model.NombrePaciente" disabled />
         </p>
     </div>
 </div>
@@ -28,7 +29,7 @@
         <p>
             <label>Cedula</label>
             <br />
-            <input id="Cedula" name="CedulaPaciente" class="required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.CedulaPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty) />
+            <input id="Cedula" name="CedulaPaciente" class="required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@Model.CedulaPaciente" disabled />
             <label id="salida" name="ValidacionCedula" />
         </p>
     </div>
@@ -36,14 +37,14 @@
         <p>
             <label>Direccion</label>
             <br />
-            <input name="DireccionPaciente" class="col-xl required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.DireccionPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>
+            <input name="DireccionPaciente" class="col-xl required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@Model.DireccionPaciente" disabled>
         </p>
     </div>
     <div class="col-xl-3">
         <p>
             <label>Telefono</label>
             <br />
-            <input name="TelefonoPaciente" class="required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.TelefonoPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty) />
+            <input name="TelefonoPaciente" class="required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@Model.TelefonoPaciente" disabled />
         </p>
     </div>
 
@@ -53,16 +54,24 @@
         <p>
             <label>Fecha de Nacimiento</label>
             <br />
-            <input name="FechaNacimientoPaciente" class="required" type="date" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.FechaNacimientoPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty) />
+            <input name="FechaNacimientoPaciente" class="required" type="date" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="Model.FechaNacimientoPaciente" disabled />
         </p>
     </div>
     <div class="col-xl-3">
         <p>
             <label>Genero</label>
             <br>
-            <select name="GeneroPaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>
-                <option value="femenino" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.GeneroPaciente.Equals("femenino") ? "selected" : string.Empty) : string.Empty) : string.Empty)> Femenino </option>
-                <option value="masculino" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.GeneroPaciente.Equals("masculino") ? "selected" : string.Empty) : string.Empty) : string.Empty)> Masculino </option>
+            <select name="GeneroPaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" disabled>
+                @{
+                    var generos = ViewData["Generos"] as List<TESIS002.Models.ParametroModel>;
+                    foreach (var genero in generos)
+                    {
+                        if (genero.idParametro == Model.GeneroPaciente)
+                        {
+                            <option value="@genero.idParametro" selected>@genero.valorParametro</option>
+                        }
+                    }
+                }
             </select>
         </p>
     </div>
@@ -70,12 +79,18 @@
         <p>
             <label>Estado Civil</label>
             <br />
-            <select name="EstadoCivilPaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>
-                <option value="soltero" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.EstadoCivilPaciente.Equals("soltero") ? "selected" : string.Empty) : string.Empty) : string.Empty)>SOLTERO</option>
-                <option value="casado" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.EstadoCivilPaciente.Equals("casado") ? "selected" : string.Empty) : string.Empty) : string.Empty)>CASADO</option>
-                <option value="viudo" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.EstadoCivilPaciente.Equals("viudo") ? "selected" : string.Empty) : string.Empty) : string.Empty)>VIUDO</option>
-                <option value="divorciado" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.EstadoCivilPaciente.Equals("divorciado") ? "selected" : string.Empty) : string.Empty) : string.Empty)>DIVORCIADO</option>
-                <option value="union libre" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.EstadoCivilPaciente.Equals("union libre") ? "selected" : string.Empty) : string.Empty) : string.Empty)>UNION LIBRE</option>
+            <select name="EstadoCivilPaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" disabled>
+                @{
+                    var estadosCiviles = ViewData["EstadosCiviles"] as List<TESIS002.Models.ParametroModel>;
+                    foreach (var estado in estadosCiviles)
+                    {
+                        if (estado.idParametro == Model.EstadoCivilPaciente)
+                        {
+                            <option value="@estado.idParametro">@estado.valorParametro</option>
+                        }
+
+                    }
+                }
             </select>
         </p>
     </div>
@@ -83,15 +98,18 @@
         <p>
             <label>Tipo de Sangre</label>
             <br />
-            <select name="TipoSangrePaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>
-                <option value="A+" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("A+") ? "selected" : string.Empty) : string.Empty) : string.Empty)>A+</option>
-                <option value="A-" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("A-") ? "selected" : string.Empty) : string.Empty) : string.Empty)>A-</option>
-                <option value="B+" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("B+") ? "selected" : string.Empty) : string.Empty) : string.Empty)>B+</option>
-                <option value="B-" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("B-") ? "selected" : string.Empty) : string.Empty) : string.Empty)>B-</option>
-                <option value="AB+" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("AB+") ? "selected" : string.Empty) : string.Empty) : string.Empty)>AB+</option>
-                <option value="AB-" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("AB-") ? "selected" : string.Empty) : string.Empty) : string.Empty)>AB-</option>
-                <option value="O+" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("O+") ? "selected" : string.Empty) : string.Empty) : string.Empty)>O+</option>
-                <option value="O-" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? (Model.TipoSangrePaciente.Equals("O-") ? "selected" : string.Empty) : string.Empty) : string.Empty)>O-</option>
+            <select name="TipoSangrePaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" disabled>
+                @{
+                    var tiposSangre = ViewData["TiposSangre"] as List<TESIS002.Models.ParametroModel>;
+                    foreach (var tipo in tiposSangre)
+                    {
+                        if (tipo.idParametro == Model.TipoSangrePaciente)
+                        {
+                            <option value="@tipo.idParametro">@tipo.valorParametro</option>
+                        }
+
+                    }
+                }
             </select>
         </p>
     </div>
@@ -100,19 +118,19 @@
     <div class="col-xl-3">
         <p>
             <label>Contacto de Emergemcia</label>
-            <input name="NombreContactoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.NombreContactoEmergenciaPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty) />
+            <input name="NombreContactoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.NombreContactoEmergenciaPaciente : string.Empty)" disabled />
         </p>
     </div>
     <div class="col-xl-3">
         <p>
             <label>Afinidad</label>
-            <input name="AfinidadContactoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.AfinidadContactoEmergenciaPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty) />
+            <input name="AfinidadContactoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.AfinidadContactoEmergenciaPaciente : string.Empty)" disabled />
         </p>
     </div>
     <div class="col-xl-3">
         <p>
             <label>Telefono</label>
-            <input name="TelefonoContatoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.TelefonoContatoEmergenciaPaciente : string.Empty)" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty) />
+            <input name="TelefonoContatoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.TelefonoContatoEmergenciaPaciente : string.Empty)" disabled />
         </p>
     </div>
 </div>
@@ -121,7 +139,7 @@
         <p>
             <label>Antecedentes</label>
             <br />
-            <textarea name="AntecedentesPaciente" type="text" class="col-xl required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:80px;" @(Model != null ? (!string.IsNullOrEmpty(Model.IdPaciente) ? "disabled" : string.Empty) : string.Empty)>
+            <textarea name="AntecedentesPaciente" type="text" class="col-xl required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:80px;" disabled>
 @(Model != null ? Model.AntecedentesPaciente : string.Empty)
             </textarea>
         </p>
@@ -130,20 +148,26 @@
 
 <div class="text-center">
     <br />
-    <form action="Actualizar" method="post">
-        <button name="idPaciente" value="@Model.IdPaciente" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
-            <i class="fas fa-edit"></i>
-        </button>
-    </form>
-    <form action="../Cita/Ingresar" method="post">
-        <button name="idPaciente" value="@Model.IdPaciente" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
-            <i class="fas fa-edit"></i>
-        </button>
-    </form>
-    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Paciente/Actualizar'">ACTUALIZAR</button>
-    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Cita/Ingresar'">CITA</button>
-    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Procedimiento/Ingresar'">PROCEDIMIENTO</button>
-    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Laboratorio/Ingresar'">LABORATORIO</button>
+    <div class="row">
+        <div class="col-xl-4">
+            <form action="Actualizar" method="post">
+                <button name="idPaciente" value="@Model.IdPaciente" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </form>
+        </div>
+        <div class="col-xl-4">
+            <form action="../Cita/Ingresar" method="post">
+                <button name="idPaciente" value="@Model.IdPaciente" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+                    <i class="far fa-address-book"></i>
+                </button>
+            </form>
+        </div>  
+    </div>
+    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Paciente/Actualizar'" hidden>ACTUALIZAR</button>
+    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Cita/Ingresar'" hidden>CITA</button>
+    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Procedimiento/Ingresar'" hidden>PROCEDIMIENTO</button>
+    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Laboratorio/Ingresar'" hidden>LABORATORIO</button>
     <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Paciente/Listar'">SALIR</button>
 </div>
 

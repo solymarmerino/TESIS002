@@ -1,8 +1,9 @@
-﻿@model List<TESIS002.Models.PacienteModel>
+﻿@model List<TESIS002.Models.PacienteModelBK>
 @{
     ViewBag.Title = "Buscar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <p><h2 style="text-align:center">Buscar Paciente</h2></p>
 
@@ -37,34 +38,34 @@
         </div>
     </div>
 </form>
-<p>
-	<table class="table">
+<br />
+<table class="table">
+	<tr>
+		<th scope="col">Paciente</th>
+		<th scope="col">Historia Cl&iacute;nica</th>
+		<th scope="col">C&eacute;dula</th>
+		<th scope="col"></th>
+	</tr>
+	@foreach (var paciente in Model)
+	{
 		<tr>
-			<th scope="col">Paciente</th>
-			<th scope="col">Historia Cl&iacute;nica</th>
-			<th scope="col">C&eacute;dula</th>
-			<th scope="col"></th>
+			<td scope="col">@paciente.NombrePaciente</td>
+			<td scope="col">@paciente.HistoriaClinicaPaciente</td>
+			<td scope="col">@paciente.CedulaPaciente</td>
+			<td scope="col">
+				<form action="Mostrar" method="post">
+					<button name="idPaciente" value="@paciente.IdPaciente" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+						<i class="fas fa-eye"></i>
+					</button>
+				</form>
+			</td>
+
 		</tr>
-		@foreach (var paciente in Model)
-		{
-			<tr>
-				<td scope="col">@paciente.NombrePaciente</td>
-				<td scope="col">@paciente.HistoriaClinicaPaciente</td>
-				<td scope="col">@paciente.CedulaPaciente</td>
-				<td scope="col">
-					<form action="Mostrar" method="post">
-						<button name="idPaciente" value="@paciente.IdPaciente" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
-							<i class="fas fa-edit"></i>
-						</button>
-					</form>
-				</td>
 
-			</tr>
+	}
 
-		}
+</table>
 
-	</table>
-</p>
 <form action="Ingresar" method="post">
     <div class="text-center">
         <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Paciente/Ingresar'">NUEVO PACIENTE</button>

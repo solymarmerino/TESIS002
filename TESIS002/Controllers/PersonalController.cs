@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TESIS002.Conexion;
 using TESIS002.Models;
 using TESIS002.Object;
 
@@ -10,6 +12,7 @@ namespace TESIS002.Controllers
 {
     public class PersonalController : Controller
     {
+
         Listas listas = new Listas();
         Validacion validacion = new Validacion();
         // GET: Personal
@@ -48,7 +51,27 @@ namespace TESIS002.Controllers
 
         public ActionResult Listar()
         {
-            return View(this.listas.getListaPersonal());
+            return View(this.listas.getListaPersonal());            
+        }
+
+        public ActionResult ListarDesdeBD()
+        {
+            ConexionBD conexion = new ConexionBD();
+            List<PersonalModel> listaPersonal = new List<PersonalModel>();
+
+            string sql = "select Personal.* from Personal";
+
+            DataTable datos = conexion.Consultar(sql);
+            PersonalModel personal = new PersonalModel();
+
+            personal.IdPersonal = datos.Rows[0].Field<int>("idPersonal").ToString();
+            personal.NombrePersonal = datos.Rows[0].Field<string>("NombrePersonal");
+            personal.TelefonoPersonal = datos.Rows[0].Field<string>("TelefonoPersonal");
+            personal.CargoPersonal = datos.Rows[0].Field<int>("idCargoPersonal").ToString();
+
+            listaPersonal.Add(personal);
+
+            return View(listaPersonal);
         }
 
         [HttpPost]
