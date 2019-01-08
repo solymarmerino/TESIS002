@@ -21,7 +21,7 @@
         <div class="col-xl-10">
             <p>
                 <label>Nombre Completo</label>
-                <input class="col-xl required" name="NombrePaciente" placeholder=" NOMBRES APELLIDOS" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.NombrePaciente : string.Empty)"   />
+                <input class="col-xl required" name="NombrePaciente" placeholder=" NOMBRES APELLIDOS" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.NombrePaciente : string.Empty)" />
             </p>
         </div>
     </div>
@@ -31,7 +31,7 @@
             <p>
                 <label>Cedula</label>
                 <br />
-                <input id="Cedula" name="CedulaPaciente" class="required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.CedulaPaciente : string.Empty)"   />
+                <input id="Cedula" name="CedulaPaciente" class="required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.CedulaPaciente : string.Empty)" />
                 <label id="salida" name="ValidacionCedula" />
             </p>
         </div>
@@ -39,14 +39,14 @@
             <p>
                 <label>Direccion</label>
                 <br />
-                <input name="DireccionPaciente" class="col-xl required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.DireccionPaciente : string.Empty)"  >
+                <input name="DireccionPaciente" class="col-xl required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.DireccionPaciente : string.Empty)">
             </p>
         </div>
         <div class="col-xl-3">
             <p>
                 <label>Telefono</label>
                 <br />
-                <input name="TelefonoPaciente" class="required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.TelefonoPaciente : string.Empty)"   />
+                <input name="TelefonoPaciente" class="required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.TelefonoPaciente : string.Empty)" />
             </p>
         </div>
 
@@ -56,14 +56,14 @@
             <p>
                 <label>Fecha de Nacimiento</label>
                 <br />
-                <input name="FechaNacimientoPaciente" class="required" type="date" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.FechaNacimientoPaciente.ToString() : DateTime.Now.ToString())"   />
+                <input name="FechaNacimientoPaciente" class="required" type="date" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.FechaNacimientoPaciente.ToString() : DateTime.Now.ToString())" />
             </p>
         </div>
         <div class="col-xl-3">
             <p>
                 <label>Genero</label>
                 <br>
-                <select name="GeneroPaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"  >
+                <select name="GeneroPaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
                     <option> ----- </option>
                     @{
                         var generos = ViewData["Generos"] as List<TESIS002.Models.ParametroModel>;
@@ -71,7 +71,7 @@
                         {
                             <option value="@genero.idParametro">@genero.valorParametro</option>
                         }
-                    }                    
+                    }
                 </select>
             </p>
         </div>
@@ -79,7 +79,7 @@
             <p>
                 <label>Estado Civil</label>
                 <br />
-                <select name="EstadoCivilPaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"  >
+                <select name="EstadoCivilPaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
                     <option> ----- </option>
                     @{
                         var estadosCiviles = ViewData["EstadosCiviles"] as List<TESIS002.Models.ParametroModel>;
@@ -87,7 +87,7 @@
                         {
                             <option value="@estado.idParametro">@estado.valorParametro</option>
                         }
-                    }                    
+                    }
                 </select>
             </p>
         </div>
@@ -95,7 +95,7 @@
             <p>
                 <label>Tipo de Sangre</label>
                 <br />
-                <select name="TipoSangrePaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"  >
+                <select name="TipoSangrePaciente" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
                     <option> ----- </option>
                     @{
                         var tiposSangre = ViewData["TiposSangre"] as List<TESIS002.Models.ParametroModel>;
@@ -112,19 +112,19 @@
         <div class="col-xl-3">
             <p>
                 <label>Contacto de Emergemcia</label>
-                <input name="NombreContactoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.NombreContactoEmergenciaPaciente : string.Empty)"   />
+                <input name="NombreContactoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.NombreContactoEmergenciaPaciente : string.Empty)" />
             </p>
         </div>
         <div class="col-xl-3">
             <p>
                 <label>Afinidad</label>
-                <input name="AfinidadContactoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.AfinidadContactoEmergenciaPaciente : string.Empty)"   />
+                <input name="AfinidadContactoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.AfinidadContactoEmergenciaPaciente : string.Empty)" />
             </p>
         </div>
         <div class="col-xl-3">
             <p>
                 <label>Telefono</label>
-                <input name="TelefonoContatoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.TelefonoContatoEmergenciaPaciente : string.Empty)"   />
+                <input name="TelefonoContatoEmergenciaPaciente" class="required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@(Model!=null ? Model.TelefonoContatoEmergenciaPaciente : string.Empty)" />
             </p>
         </div>
     </div>
@@ -133,7 +133,7 @@
             <p>
                 <label>Antecedentes</label>
                 <br />
-                <textarea name="AntecedentesPaciente" type="text" class="col-xl required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:80px;" value="@(Model!=null ? Model.AntecedentesPaciente : string.Empty)"  ></textarea>
+                <textarea name="AntecedentesPaciente" type="text" class="col-xl required" style="text-transform: uppercase; text-align:left; border-radius:0.3rem; width:100%; height:80px;" value="@(Model!=null ? Model.AntecedentesPaciente : string.Empty)"></textarea>
             </p>
         </div>
     </div>
@@ -141,9 +141,13 @@
 
     <div class="text-center">
         <br />
-        <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormulario()"  >INGRESAR PACIENTE</button>
-        <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Login/Lobby'">SALIR</button>
+        <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormulario()">GUARDAR</button>
     </div>
 </form>
 
-
+<!--
+<div class="text-center">
+    <br />
+    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Login/Lobby'">CANCELAR</button>
+</div>
+-->
