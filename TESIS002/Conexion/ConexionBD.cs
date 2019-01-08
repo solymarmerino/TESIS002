@@ -41,6 +41,7 @@ namespace TESIS002.Conexion
             sentenciaSQL.Connection = conexion;
             conexion.Open();
             sentenciaSQL.ExecuteNonQuery();
+            conexion.Close();
         }
 
         public void Desconectar()
