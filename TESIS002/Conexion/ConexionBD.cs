@@ -10,7 +10,7 @@ namespace TESIS002.Conexion
     public class ConexionBD
     {
         //Parametros para la conexión hacia la bese de datos
-        private string stringConexion = "data source = 192.168.56.101; initial catalog = VACARI; user id = vacari; password = Tesis2018";
+        private string stringConexion = "data source = 192.168.56.101; initial catalog = VACARI; user id = sa; password = Tesis2018";
         
         public ConexionBD()
         {
